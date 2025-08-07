@@ -7,14 +7,20 @@ import { categories } from "./app/config/categories";
 import CategoryPickerItem from "./app/components/CategoryPickerItem";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import AccountScreen from "./app/screens/AccountScreen";
+import LoginScreen from "./app/screens/LoginScreen";
 
 export default function App() {
   const [category, setCategory] = useState();
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <Screen>
-        <AppPicker
+      <LoginScreen />
+    </GestureHandlerRootView>
+  );
+}
+
+//
+/* <AppPicker
           selectedItem={category}
           onSelectItem={(item) => setCategory(item)}
           items={categories}
@@ -28,8 +34,4 @@ export default function App() {
         <AppTextInput placeholder="Last Name" />
         <AppTextInput placeholder="Contact Number " />
         <AppTextInput placeholder="Address" />
-        <AppTextInput icon="email" placeholder="Email" />
-      </Screen>
-    </GestureHandlerRootView>
-  );
-}
+        <AppTextInput icon="email" placeholder="Email" /> */
