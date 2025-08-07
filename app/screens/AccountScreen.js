@@ -11,14 +11,14 @@ const menuItems = [
     title: "My Listings",
     icon: {
       name: "format-list-bulleted",
-      backgorundColor: colors.primary,
+      backgroundColor: colors.primary,
     },
   },
   {
     title: "My Messages",
     icon: {
       name: "email",
-      backgorundColor: colors.secondary,
+      backgroundColor: colors.secondary,
     },
   },
 ];
@@ -44,7 +44,7 @@ function AccountScreen(props) {
               IconComponent={
                 <Icon
                   name={item.icon.name}
-                  backgroundColor={item.icon.backgorundColor}
+                  backgroundColor={item.icon.backgroundColor}
                 />
               }
             />

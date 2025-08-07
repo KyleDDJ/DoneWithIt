@@ -3,7 +3,8 @@ import colors from "../../config/colors";
 
 const styles = StyleSheet.create({
   text: {
-    color: colors.black,
+    color: colors.secondary,
+    // fontSize: 18,
     fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
   },
 });
