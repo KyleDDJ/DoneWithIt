@@ -8,30 +8,16 @@ import CategoryPickerItem from "./app/components/CategoryPickerItem";
 import ViewImageScreen from "./app/screens/ViewImageScreen";
 import AccountScreen from "./app/screens/AccountScreen";
 import LoginScreen from "./app/screens/LoginScreen";
+import ListingEditScreen from "./app/screens/ListingEditScreen";
+import MessagesScreen from "./app/screens/MessagesScreen";
+import ListingsScreen from "./app/screens/ListingsScreen";
+import ListingDetailsScreen from "./app/screens/ListingDetailsScreen";
+import WelcomeScreen from "./app/screens/WelcomeScreen";
 
 export default function App() {
-  const [category, setCategory] = useState();
-
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <LoginScreen />
+      <Screen></Screen>
     </GestureHandlerRootView>
   );
 }
-
-//
-/* <AppPicker
-          selectedItem={category}
-          onSelectItem={(item) => setCategory(item)}
-          items={categories}
-          icon="apps"
-          placeholder="Category"
-          PickerItemComponent={CategoryPickerItem}
-          numberOfColumns={3}
-        />
-
-        <AppTextInput placeholder="First Name" />
-        <AppTextInput placeholder="Last Name" />
-        <AppTextInput placeholder="Contact Number " />
-        <AppTextInput placeholder="Address" />
-        <AppTextInput icon="email" placeholder="Email" /> */

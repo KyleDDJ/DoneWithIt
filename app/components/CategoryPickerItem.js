@@ -2,10 +2,11 @@ import React from "react";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AppText from "./AppText";
+import colors from "../config/colors";
 
 function CategoryPickerItem({ item, onPress }) {
   return (
-    <TouchableOpacity style={styles.wrapper} onPress={onPress}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <View
         style={[
           styles.iconContainer,
@@ -22,9 +23,9 @@ function CategoryPickerItem({ item, onPress }) {
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
+  container: {
     alignItems: "center",
-    paddingHorizontal: 10,
+    paddingorizontal: 10,
     paddingVertical: 15,
     width: "33%",
   },
@@ -37,8 +38,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   labelBox: {
-    backgroundColor: "#f0f0f0",
-    borderRadius: 50,
+    backgroundColor: colors.lightgrey,
+    borderRadius: 10,
     paddingVertical: 6,
     paddingHorizontal: 10,
     width: 70,

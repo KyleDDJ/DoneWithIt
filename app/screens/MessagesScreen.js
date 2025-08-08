@@ -4,25 +4,39 @@ import ListItem from "../components/ListItem";
 import Screen from "../components/Screen";
 import ListItemSeparator from "../components/ListItemSeparator";
 import ListItemDeleteAction from "../components/ListItemDeleteAction";
+import Footer from "../components/Footer";
 
 const initialMessages = [
   {
     id: 1,
-    title: "T1",
-    description: "D1",
+    title: "Kyle De Jesus",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget est et massa gravida luctus. Sed mattis efficitur erat ut consectetur. Aliquam imperdiet arcu elit, in malesuada nunc convallis vitae. Praesent aliquet iaculis nisi, eu ornare nulla interdum non. Mauris pretium, ex vitae interdum feugiat, orci sapien suscipit sapien, at lacinia urna nisi in augue. Duis dictum a nunc vel luctus. Suspendisse aliquet purus magna. Nam ac dolor in est rhoncus venenatis. Donec eu urna pulvinar, sagittis justo sit amet, feugiat enim. Proin egestas mi at fermentum accumsan. Vestibulum in venenatis leo, vel molestie eros",
     image: require("../assets/user.jpg"),
   },
   {
     id: 2,
-    title: "T2",
-    description: "D2",
-    image: require("../assets/user.jpg"),
+    title: "Joseph Neil Gapuz",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    image: require("../assets/user2.jpg"),
   },
   {
     id: 3,
-    title: "T3",
-    description: "D3",
-    image: require("../assets/user.jpg"),
+    title: "Rod ALvin Cudiamat",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    image: require("../assets/user3.jpg"),
+  },
+  {
+    id: 4,
+    title: "James Derek Orodio",
+    description: "Sulasok!",
+    image: require("../assets/james.jpg"),
+  },
+  {
+    id: 5,
+    title: "Kenneth Robie Laigo",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    image: require("../assets/red.jpg"),
   },
 ];
 
@@ -54,13 +68,19 @@ function MessagesScreen({ props }) {
         onRefresh={() =>
           setMessages([
             {
-              id: 3,
-              title: "T3",
-              description: "D3",
+              id: 1,
+              title: "Kyle De Jesus",
+              description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget est et massa gravida luctus. Sed mattis efficitur erat ut consectetur. Aliquam imperdiet arcu elit, in malesuada nunc convallis vitae. Praesent aliquet iaculis nisi, eu ornare nulla interdum non. Mauris pretium, ex vitae interdum feugiat, orci sapien suscipit sapien, at lacinia urna nisi in augue. Duis dictum a nunc vel luctus. Suspendisse aliquet purus magna. Nam ac dolor in est rhoncus venenatis. Donec eu urna pulvinar, sagittis justo sit amet, feugiat enim. Proin egestas mi at fermentum accumsan. Vestibulum in venenatis leo, vel molestie eros",
               image: require("../assets/user.jpg"),
             },
           ])
         }
+      />
+      <Footer
+        onPlusPress={() => console.log("New Message pressed")}
+        onChatsPress={() => console.log("Chats pressed")}
+        onMenusPress={() => console.log("Menus pressed")}
       />
     </Screen>
   );

@@ -1,7 +1,8 @@
 import React from "react";
+import { StyleSheet, View, FlatList } from "react-native";
+
 import Screen from "../components/Screen";
 import ListItem from "../components/ListItem";
-import { StyleSheet, View, FlatList } from "react-native";
 import colors from "../config/colors";
 import Icon from "../components/Icon";
 import ListItemSeparatorComponent from "../components/ListItemSeparator";
@@ -29,8 +30,9 @@ function AccountScreen(props) {
       <View style={styles.container}>
         <ListItem
           title="Kyle De Jesus"
-          subTitle="shangrilaFrontier@gmail.com"
+          subTitle="shangrilaFrontier@gmail.com | +63 912345678"
           image={require("../assets/user.jpg")}
+          showChevron={false}
         />
       </View>
       <View style={styles.container}>
@@ -41,6 +43,7 @@ function AccountScreen(props) {
           renderItem={({ item }) => (
             <ListItem
               title={item.title}
+              showChevron={false}
               IconComponent={
                 <Icon
                   name={item.icon.name}
@@ -53,6 +56,7 @@ function AccountScreen(props) {
       </View>
       <ListItem
         title={"Log Out"}
+        showChevron={false}
         IconComponent={<Icon name="logout" backgroundColor="#ffe66d" />}
       />
     </Screen>

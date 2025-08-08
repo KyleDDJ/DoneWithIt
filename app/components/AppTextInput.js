@@ -40,9 +40,15 @@ import { View, TextInput, StyleSheet, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import defaultStyle from "../config/styles";
 
-function AppTextInput({ icon, rightIcon, onRightIconPress, ...otherProps }) {
+function AppTextInput({
+  icon,
+  width = "100%",
+  rightIcon,
+  onRightIconPress,
+  ...otherProps
+}) {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { width }]}>
       {icon && (
         <MaterialCommunityIcons
           name={icon}
@@ -77,8 +83,7 @@ const styles = StyleSheet.create({
     backgroundColor: defaultStyle.colors.lightgrey,
     borderRadius: 25,
     flexDirection: "row",
-    alignItems: "center", // ✅ ensures vertical alignment
-    width: "100%",
+    alignItems: "center",
     paddingHorizontal: 15,
     marginVertical: 5,
   },
@@ -89,7 +94,7 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     fontSize: 18,
-    paddingVertical: 12, // ✅ add vertical padding to balance text height
+    paddingVertical: 12,
     color: defaultStyle.colors.dark,
   },
   rightIconContainer: {

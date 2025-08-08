@@ -29,6 +29,60 @@ export const categories = [
     backgroundColor: "#4b7bec",
     icon: "credit-card",
   },
+  {
+    label: "Books",
+    value: 6,
+    backgroundColor: "#a55eea",
+    icon: "book-open-page-variant",
+  },
+  {
+    label: "Electronics",
+    value: 7,
+    backgroundColor: "#fa8231",
+    icon: "laptop",
+  },
+  {
+    label: "Sports",
+    value: 8,
+    backgroundColor: "#20bf6b",
+    icon: "basketball",
+  },
+  {
+    label: "Toys",
+    value: 9,
+    backgroundColor: "#f7b731",
+    icon: "puzzle",
+  },
+  {
+    label: "Pets",
+    value: 10,
+    backgroundColor: "#8854d0",
+    icon: "dog",
+  },
+  {
+    label: "Music",
+    value: 11,
+    backgroundColor: "#eb3b5a",
+    icon: "music",
+  },
+  {
+    label: "Groceries",
+    value: 12,
+    backgroundColor: "#45aaf2",
+    icon: "cart",
+  },
+  {
+    label: "Tools",
+    value: 13,
+    backgroundColor: "#4b6584",
+    icon: "hammer-wrench",
+  },
+  {
+    label: "Vehicles",
+    value: 14,
+    backgroundColor: "#2d98da",
+    icon: "car",
+  },
 ];
 
 export default categories;
