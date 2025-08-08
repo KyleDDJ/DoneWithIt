@@ -11,7 +11,7 @@ import { AntDesign, FontAwesome } from "@expo/vector-icons";
 import * as Yup from "yup";
 
 import Screen from "../components/Screen";
-import colors from "../config/colors";
+import colors from "../config/Colors";
 import { AppForm, AppFormField, SubmitButton } from "../components/forms";
 
 const validationSchema = Yup.object().shape({
@@ -63,7 +63,7 @@ function LoginScreen(props) {
           onRightIconPress={() => setShowPassword(!showPassword)}
         />
         <SubmitButton title="Login" />
-        <View style={styles.linkContainer}>
+        <View style={styles.link_container}>
           <TouchableWithoutFeedback onPress={handleForgotPassword}>
             <Text style={styles.link}>Forgot Password?</Text>
           </TouchableWithoutFeedback>
@@ -71,15 +71,15 @@ function LoginScreen(props) {
             <Text style={styles.link}>Register</Text>
           </TouchableWithoutFeedback>
         </View>
-        <View style={styles.orContainer}>
+        <View style={styles.or_container}>
           <Text style={styles.text}>OR</Text>
         </View>
-        <View style={styles.socialLoginContainer}>
+        <View style={styles.social_login_container}>
           {socialLogins.map(({ name, color, iconSet: Icon }, index) => (
             <TouchableOpacity
               key={index}
               onPress={() => handleSocialLogin(name)}
-              style={[styles.socialButton, { backgroundColor: color }]}
+              style={[styles.social_button, { backgroundColor: color }]}
             >
               <Icon name={name} size={20} color="white" />
             </TouchableOpacity>
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
     marginBottom: 50,
   },
-  linkContainer: {
+  link_container: {
     flexDirection: "row",
     justifyContent: "space-between",
     marginTop: 5,
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
     fontSize: 10,
     color: colors.grey,
   },
-  orContainer: {
+  or_container: {
     backgroundColor: colors.lightgrey,
     width: 20,
     height: 20,
@@ -128,13 +128,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignSelf: "center",
   },
-  socialLoginContainer: {
+  social_login_container: {
     flexDirection: "row",
     justifyContent: "center",
     marginTop: 10,
     gap: 15,
   },
-  socialButton: {
+  social_button: {
     width: 100,
     height: 40,
     borderRadius: 8,

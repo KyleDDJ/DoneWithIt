@@ -11,8 +11,8 @@ import {
 } from "../components/forms";
 import Screen from "../components/Screen";
 import CategoryPickerItem from "../components/CategoryPickerItem";
-import categories from "../config/categories";
-import colors from "../config/colors";
+import Categories from "../config/categories";
+import colors from "../config/Colors";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
@@ -38,9 +38,9 @@ function ListingEditScreen(props) {
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
-        <View style={styles.addPictureContainer}>
+        <View style={styles.add_picture_container}>
           <TouchableOpacity
-            style={styles.addPictureButton}
+            style={styles.add_picture_button}
             onPress={handleAddPicture}
           >
             <MaterialCommunityIcons name="plus" size={40} color={colors.grey} />
@@ -58,7 +58,7 @@ function ListingEditScreen(props) {
         />
 
         <AppFormPicker
-          items={categories}
+          items={Categories}
           name="category"
           placeholder="Category"
           PickerItemComponent={CategoryPickerItem}
@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
   container: {
     padding: 10,
   },
-  addPictureButton: {
+  add_picture_button: {
     width: 100,
     height: 100,
     backgroundColor: colors.lightgrey,
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 20,
   },
-  addPictureContainer: {
+  add_picture_container: {
     alignItems: "center",
     marginVertical: 20,
   },

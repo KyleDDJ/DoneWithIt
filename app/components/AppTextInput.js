@@ -1,44 +1,7 @@
-// import React from "react";
-// import { View, TextInput, StyleSheet } from "react-native";
-// import { MaterialCommunityIcons } from "@expo/vector-icons";
-// import defaultStyle from "../config/styles";
-
-// function AppTextInput({ icon, ...otherProps }) {
-//   return (
-//     <View style={styles.container}>
-//       {icon && (
-//         <MaterialCommunityIcons
-//           name={icon}
-//           size={25}
-//           color={defaultStyle.colors.grey}
-//           style={styles.icon}
-//         />
-//       )}
-//       <TextInput style={defaultStyle.text} {...otherProps} />
-//     </View>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     backgroundColor: defaultStyle.colors.lightgrey,
-//     borderRadius: 25,
-//     flexDirection: "row",
-//     width: "100%",
-//     padding: 15,
-//     marginVertical: 5,
-//   },
-//   icon: {
-//     marginRight: 10,
-//     alignSelf: "center",
-//   },
-// });
-
-// export default AppTextInput;
 import React from "react";
 import { View, TextInput, StyleSheet, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import defaultStyle from "../config/styles";
+import defaultStyle from "../config/Styles";
 
 function AppTextInput({
   icon,
@@ -65,7 +28,7 @@ function AppTextInput({
       {rightIcon && (
         <TouchableOpacity
           onPress={onRightIconPress}
-          style={styles.rightIconContainer}
+          style={styles.right_icon_container}
         >
           <MaterialCommunityIcons
             name={rightIcon}
@@ -87,7 +50,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     marginVertical: 5,
   },
-
   icon: {
     marginRight: 10,
   },
@@ -97,7 +59,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     color: defaultStyle.colors.dark,
   },
-  rightIconContainer: {
+  right_icon_container: {
     marginLeft: 10,
   },
 });

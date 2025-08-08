@@ -1,4 +1,4 @@
-export const categories = [
+export const Categories = [
   {
     label: "Furniture",
     value: 1,
@@ -85,4 +85,4 @@ export const categories = [
   },
 ];
 
-export default categories;
+export default Categories;

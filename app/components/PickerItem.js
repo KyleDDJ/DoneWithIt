@@ -10,11 +10,4 @@ function PickerItem({ label, onPress }) {
   );
 }
 
-// const styles = StyleSheet.create({
-//   text: {
-//     padding: 20,
-//     fontWeight: "bold",
-//   },
-// });
-
 export default PickerItem;

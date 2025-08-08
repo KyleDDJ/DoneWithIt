@@ -1,7 +1,7 @@
 import React from "react";
 import { FlatList, StyleSheet } from "react-native";
 
-import colors from "../config/colors";
+import colors from "../config/Colors";
 import Screen from "../components/Screen";
 import Card from "../components/Card";
 
@@ -35,7 +35,7 @@ function ListingsScreen(props) {
         renderItem={({ item }) => (
           <Card
             title={item.title}
-            subTitle={"$" + item.price}
+            sub_title={"$" + item.price}
             image={item.image}
           />
         )}

@@ -2,20 +2,20 @@ import React from "react";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AppText from "./AppText";
-import colors from "../config/colors";
+import colors from "../config/Colors";
 
 function CategoryPickerItem({ item, onPress }) {
   return (
     <TouchableOpacity style={styles.container} onPress={onPress}>
       <View
         style={[
-          styles.iconContainer,
+          styles.icon_container,
           { backgroundColor: item.backgroundColor },
         ]}
       >
         <MaterialCommunityIcons name={item.icon} size={30} color="white" />
       </View>
-      <View style={styles.labelBox}>
+      <View style={styles.label_box}>
         <AppText style={styles.label}>{item.label}</AppText>
       </View>
     </TouchableOpacity>
@@ -25,11 +25,11 @@ function CategoryPickerItem({ item, onPress }) {
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    paddingorizontal: 10,
+    paddingHorizontal: 10,
     paddingVertical: 15,
     width: "33%",
   },
-  iconContainer: {
+  icon_container: {
     borderRadius: 35,
     width: 70,
     height: 70,
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 10,
   },
-  labelBox: {
+  label_box: {
     backgroundColor: colors.lightgrey,
     borderRadius: 10,
     paddingVertical: 6,

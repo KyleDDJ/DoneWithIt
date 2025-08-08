@@ -1,7 +1,7 @@
 import React from "react";
 import Constant from "expo-constants";
 import { SafeAreaView, StyleSheet, View } from "react-native";
-import colors from "../config/colors";
+import colors from "../config/Colors";
 
 function Screen({ children, style }) {
   return (

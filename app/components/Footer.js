@@ -1,22 +1,22 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import colors from "../config/colors"; // adjust path if needed
+import colors from "../config/Colors"; // adjust path if needed
 
 function Footer({ onPlusPress, onChatsPress, onMenusPress }) {
   return (
     <View style={styles.footer}>
       <TouchableOpacity style={styles.option} onPress={onChatsPress}>
         <MaterialCommunityIcons name="chat" size={30} color={colors.grey} />
-        <Text style={styles.footerText}>Chats</Text>
+        <Text style={styles.footer_text}>Chats</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.option} onPress={onMenusPress}>
         <MaterialCommunityIcons name="menu" size={30} color={colors.grey} />
-        <Text style={styles.footerText}>Menus</Text>
+        <Text style={styles.footer_text}>Menus</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.plusButton} onPress={onPlusPress}>
+      <TouchableOpacity style={styles.plus_button} onPress={onPlusPress}>
         <MaterialCommunityIcons name="message-plus" size={30} color="white" />
       </TouchableOpacity>
     </View>
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     position: "relative",
   },
-  footerText: {
+  footer_text: {
     fontSize: 13,
     color: colors.grey,
     marginTop: 1,
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
   },
-  plusButton: {
+  plus_button: {
     position: "absolute",
     top: -80,
     right: 20,
@@ -54,11 +54,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     elevation: 5,
-  },
-  plusText: {
-    color: "#fff",
-    fontSize: 30,
-    lineHeight: 30,
   },
 });
 

@@ -7,12 +7,10 @@ import {
   ScrollView,
   Text,
 } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import AppText from "../components/AppText";
-import colors from "../config/colors";
+import colors from "../config/Colors";
 import Screen from "../components/Screen";
-import ListItem from "../components/ListItem";
 
 function ListingDetailsScreen() {
   const [selectedSize, setSelectedSize] = useState("M");
@@ -26,30 +24,30 @@ function ListingDetailsScreen() {
           resizeMode="cover"
         />
 
-        <View style={styles.detailsContainer}>
-          <View style={styles.priceRow}>
+        <View style={styles.details_container}>
+          <View style={styles.price_row}>
             <AppText style={styles.title}>Stylish Red Jacket</AppText>
-            <View style={styles.priceDiscount}>
+            <View style={styles.price_discount}>
               <Text style={styles.price}>$3000</Text>
               <Text style={styles.discount}>35% OFF</Text>
             </View>
           </View>
 
-          <Text style={styles.sectionTitle}>Choose size</Text>
-          <View style={styles.sizeRow}>
+          <Text style={styles.section_title}>Choose size</Text>
+          <View style={styles.size_row}>
             {["S", "M", "L", "XL"].map((size) => (
               <TouchableOpacity
                 key={size}
                 style={[
-                  styles.sizeButton,
-                  selectedSize === size && styles.sizeSelected,
+                  styles.size_button,
+                  selectedSize === size && styles.size_selected,
                 ]}
                 onPress={() => setSelectedSize(size)}
               >
                 <Text
                   style={[
-                    styles.sizeText,
-                    selectedSize === size && styles.sizeTextSelected,
+                    styles.size_text,
+                    selectedSize === size && styles.size_text_selected,
                   ]}
                 >
                   {size}
@@ -58,9 +56,9 @@ function ListingDetailsScreen() {
             ))}
           </View>
 
-          <View style={styles.tabRow}>
-            <Text style={[styles.tabText, styles.tabActive]}>Details</Text>
-            <Text style={styles.tabText}>Review</Text>
+          <View style={styles.tab_row}>
+            <Text style={[styles.tab_text, styles.tab_active]}>Details</Text>
+            <Text style={styles.tab_text}>Review</Text>
           </View>
 
           <Text style={styles.description}>
@@ -76,8 +74,8 @@ function ListingDetailsScreen() {
         </View>
       </ScrollView>
 
-      <TouchableOpacity style={styles.addToCart}>
-        <Text style={styles.addToCartText}>Add To Cart</Text>
+      <TouchableOpacity style={styles.add_to_cart}>
+        <Text style={styles.add_to_cart_text}>Add To Cart</Text>
       </TouchableOpacity>
     </Screen>
   );
@@ -88,7 +86,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 350,
   },
-  detailsContainer: {
+  details_container: {
     padding: 15,
   },
   title: {
@@ -96,13 +94,13 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: colors.black,
   },
-  priceRow: {
+  price_row: {
     flexDirection: "row",
     alignItems: "center",
     marginVertical: 10,
     justifyContent: "space-between",
   },
-  priceDiscount: {
+  price_discount: {
     flexDirection: "row",
     alignItems: "center",
   },
@@ -117,16 +115,16 @@ const styles = StyleSheet.create({
     color: colors.red,
     fontWeight: "bold",
   },
-  sectionTitle: {
+  section_title: {
     fontWeight: "bold",
     fontSize: 16,
     marginVertical: 8,
   },
-  sizeRow: {
+  size_row: {
     flexDirection: "row",
     marginBottom: 15,
   },
-  sizeButton: {
+  size_button: {
     borderWidth: 1,
     borderColor: colors.grey,
     borderRadius: 20,
@@ -134,29 +132,29 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     marginRight: 10,
   },
-  sizeSelected: {
+  size_selected: {
     backgroundColor: colors.secondary,
     borderColor: colors.secondary,
   },
-  sizeText: {
+  size_text: {
     color: colors.black,
     fontWeight: "bold",
   },
-  sizeTextSelected: {
+  size_text_selected: {
     color: colors.white,
   },
-  tabRow: {
+  tab_row: {
     flexDirection: "row",
     marginTop: 10,
     marginBottom: 5,
   },
-  tabText: {
+  tab_text: {
     marginRight: 20,
     fontWeight: "bold",
     fontSize: 16,
     color: colors.grey,
   },
-  tabActive: {
+  tab_active: {
     color: colors.black,
     borderBottomWidth: 2,
     borderBottomColor: colors.primary,
@@ -168,12 +166,12 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     marginTop: 10,
   },
-  addToCart: {
+  add_to_cart: {
     backgroundColor: colors.primary,
     padding: 15,
     alignItems: "center",
   },
-  addToCartText: {
+  add_to_cart_text: {
     color: colors.white,
     fontWeight: "bold",
     fontSize: 18,

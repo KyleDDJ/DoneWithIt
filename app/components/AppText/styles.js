@@ -1,10 +1,9 @@
 import { StyleSheet, Platform } from "react-native";
-import colors from "../../config/colors";
+import colors from "../../config/Colors";
 
 const styles = StyleSheet.create({
   text: {
     color: colors.secondary,
-    // fontSize: 18,
     fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir",
   },
 });

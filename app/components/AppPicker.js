@@ -1,17 +1,15 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { useState } from "react";
 import {
-  Button,
   FlatList,
   Modal,
   StyleSheet,
   TouchableWithoutFeedback,
   View,
 } from "react-native";
-import defaultStyle from "../config/styles";
+import defaultStyle from "../config/Styles";
 import AppText from "./AppText";
 import PickerItem from "./PickerItem";
-import App from "../../App";
 
 function AppPicker({
   icon,
@@ -49,7 +47,7 @@ function AppPicker({
         </View>
       </TouchableWithoutFeedback>
       <Modal visible={modalVisible} animationType="slide">
-        <View style={styles.closeIconContainer}>
+        <View style={styles.close_icon_container}>
           <MaterialCommunityIcons
             name="close"
             size={30}
@@ -96,7 +94,7 @@ const styles = StyleSheet.create({
     color: defaultStyle.colors.grey,
     flex: 1,
   },
-  closeIconContainer: {
+  close_icon_container: {
     alignItems: "flex-end",
     padding: 20,
   },

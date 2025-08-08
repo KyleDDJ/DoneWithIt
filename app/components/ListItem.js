@@ -5,7 +5,7 @@ import { Swipeable } from "react-native-gesture-handler";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import AppText from "./AppText";
-import colors from "../config/colors";
+import colors from "../config/Colors";
 
 function ListItem({
   title,
@@ -22,12 +22,12 @@ function ListItem({
         <View style={styles.container}>
           {IconComponent}
           {image && <Image style={styles.image} source={image} />}
-          <View style={styles.detailsContainer}>
+          <View style={styles.details_container}>
             <AppText style={styles.title} numberOfLines={1}>
               {title}
             </AppText>
             {subTitle && (
-              <AppText style={styles.subTitle} numberOfLines={2}>
+              <AppText style={styles.sub_title} numberOfLines={2}>
                 {subTitle}
               </AppText>
             )}
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     alignItems: "center",
   },
-  detailsContainer: {
+  details_container: {
     flex: 1,
     marginLeft: 10,
     justifyContent: "center",
@@ -65,9 +65,9 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: 500,
   },
-  subTitle: {
+  sub_title: {
     marginTop: 5,
-    fontSize: 10,
+    fontSize: 13,
     color: colors.grey,
   },
 });

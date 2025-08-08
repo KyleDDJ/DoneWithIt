@@ -1,15 +1,15 @@
 import React from "react";
 import { View, Image, StyleSheet } from "react-native";
-import colors from "../config/colors";
+import colors from "../config/Colors";
 import AppText from "./AppText";
 
-function Card({ title, subTitle, image }) {
+function Card({ title, sub_title, image }) {
   return (
     <View style={styles.card}>
       <Image style={styles.image} source={image} />
       <View style={styles.detailsContainer}>
         <AppText style={styles.title}>{title}</AppText>
-        <AppText style={styles.subTitle}>{subTitle}</AppText>
+        <AppText style={styles.sub_title}>{sub_title}</AppText>
       </View>
     </View>
   );
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 200,
   },
-  subTitle: {
+  sub_title: {
     color: colors.secondary,
     fontWeight: "bold",
   },

@@ -9,11 +9,11 @@ function WelcomeScreen(props) {
       style={styles.background}
       source={require("../assets/background.jpg")}
     >
-      <View style={styles.logoContainer}>
+      <View style={styles.logo_container}>
         <Image style={styles.logo} source={require("../assets/logo-red.png")} />
         <Text style={styles.tagline}>Sell What You Don't Need</Text>
       </View>
-      <View style={styles.buttonContainer}>
+      <View style={styles.button_container}>
         <AppButton title="Login" />
         <AppButton title="Register" color="secondary" />
       </View>
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
     alignItems: "center",
   },
-  buttonContainer: {
+  button_container: {
     padding: 20,
     width: "100%",
   },
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
   },
-  logoContainer: {
+  logo_container: {
     alignItems: "center",
     position: "absolute",
     top: 70,
