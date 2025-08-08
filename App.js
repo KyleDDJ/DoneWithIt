@@ -17,7 +17,7 @@ import WelcomeScreen from "./app/screens/WelcomeScreen";
 export default function App() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <Screen></Screen>
+      <Screen>test</Screen>
     </GestureHandlerRootView>
   );
 }
