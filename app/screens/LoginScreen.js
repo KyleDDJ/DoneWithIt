@@ -1,3 +1,20 @@
+/**
+ * LoginScreen.js
+ *
+ * This screen provides a user interface for users to log into the app.
+ * It includes:
+ * - Form inputs for email and password with validation using Yup.
+ * - Toggle to show/hide password visibility.
+ * - Links for "Forgot Password?" and "Register" actions.
+ * - Social login buttons for Google, QQ, and Facebook.
+ *
+ * Validation:
+ * - Email is required and must be a valid email address.
+ * - Password is required with a minimum length of 4 characters.
+ *
+ * Uses custom form components (AppForm, AppFormField, SubmitButton) and a
+ * shared Screen layout component.
+ */
 import React, { useState } from "react";
 import {
   Image,
@@ -11,7 +28,7 @@ import { AntDesign, FontAwesome } from "@expo/vector-icons";
 import * as Yup from "yup";
 
 import Screen from "../components/Screen";
-import colors from "../config/Colors";
+import Colors from "../config/Colors";
 import { AppForm, AppFormField, SubmitButton } from "../components/forms";
 
 const validationSchema = Yup.object().shape({
@@ -19,7 +36,9 @@ const validationSchema = Yup.object().shape({
   password: Yup.string().required().min(4).label("Password"),
 });
 
-function LoginScreen(props) {
+import LOGO_IMAGE from "../assets/logos/logo-red.png";
+
+function LoginScreen() {
   const [showPassword, setShowPassword] = useState(false);
   const handleForgotPassword = () => {
     console.log("Forgot Password tapped");
@@ -38,7 +57,7 @@ function LoginScreen(props) {
 
   return (
     <Screen style={styles.container}>
-      <Image style={styles.logo} source={require("../assets/logo-red.png")} />
+      <Image style={styles.logo} source={LOGO_IMAGE} />
       <AppForm
         initialValues={{ email: "", password: "" }}
         onSubmit={(values) => console.log(values)}
@@ -106,7 +125,7 @@ const styles = StyleSheet.create({
     marginTop: 5,
   },
   link: {
-    color: colors.primary,
+    color: Colors.primary,
     marginHorizontal: 10,
     flexDirection: "row",
     justifyContent: "center",
@@ -117,10 +136,10 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     fontWeight: "bold",
     fontSize: 10,
-    color: colors.grey,
+    color: Colors.grey,
   },
   or_container: {
-    backgroundColor: colors.lightgrey,
+    backgroundColor: Colors.lightgrey,
     width: 20,
     height: 20,
     borderRadius: 10,

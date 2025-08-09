@@ -1,18 +1,18 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import colors from "../config/Colors"; // adjust path if needed
+import Colors from "../config/Colors"; // adjust path if needed
 
 function Footer({ onPlusPress, onChatsPress, onMenusPress }) {
   return (
     <View style={styles.footer}>
       <TouchableOpacity style={styles.option} onPress={onChatsPress}>
-        <MaterialCommunityIcons name="chat" size={30} color={colors.grey} />
+        <MaterialCommunityIcons name="chat" size={30} color={Colors.grey} />
         <Text style={styles.footer_text}>Chats</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={styles.option} onPress={onMenusPress}>
-        <MaterialCommunityIcons name="menu" size={30} color={colors.grey} />
+        <MaterialCommunityIcons name="menu" size={30} color={Colors.grey} />
         <Text style={styles.footer_text}>Menus</Text>
       </TouchableOpacity>
 
@@ -30,13 +30,13 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     alignItems: "center",
     borderTopWidth: 1,
-    borderTopColor: colors.grey,
-    backgroundColor: colors.white,
+    borderTopColor: Colors.grey,
+    backgroundColor: Colors.white,
     position: "relative",
   },
   footer_text: {
     fontSize: 13,
-    color: colors.grey,
+    color: Colors.grey,
     marginTop: 1,
   },
   option: {
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: -80,
     right: 20,
-    backgroundColor: colors.blue,
+    backgroundColor: Colors.blue,
     width: 60,
     height: 60,
     borderRadius: 30,

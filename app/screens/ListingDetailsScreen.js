@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   View,
   Image,
@@ -9,18 +9,38 @@ import {
 } from "react-native";
 
 import AppText from "../components/AppText";
-import colors from "../config/Colors";
+import Colors from "../config/Colors";
 import Screen from "../components/Screen";
+import useSelectedSize from "../hooks/useSelectedSize";
 
+import RED_JACKET_IMAGE from "../assets/products/red.jpg";
+
+/**
+ * ListingDetailsScreen Component
+ *
+ * Displays detailed information about a product listing.
+ * Features:
+ *  - Product image at the top
+ *  - Product title, price, and discount info
+ *  - Size selection buttons (S, M, L, XL) with state management
+ *  - Tabs for "Details" and "Review" (currently static, with "Details" active)
+ *  - Product description text
+ *  - Fixed "Add To Cart" button at bottom
+ *
+ * State:
+ *  - selectedSize: manages which size button is currently selected using a custom hook
+ *
+ * @returns {JSX.Element}
+ */
 function ListingDetailsScreen() {
-  const [selectedSize, setSelectedSize] = useState("M");
+  const { selectedSize, setSelectedSize } = useSelectedSize();
 
   return (
-    <Screen style={{ backgroundColor: colors.white }}>
+    <Screen style={{ backgroundColor: Colors.white }}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Image
           style={styles.image}
-          source={require("../assets/red.jpg")}
+          source={RED_JACKET_IMAGE}
           resizeMode="cover"
         />
 
@@ -65,11 +85,7 @@ function ListingDetailsScreen() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
             iaculis lacinia ligula sit amet maximus. Vestibulum ac tortor magna.
             Ut vulputate, ipsum eu placerat aliquam, risus nisl eleifend lectus,
-            eget tempor purus diam ut elit. Morbi sed tellus posuere,
-            condimentum justo in, suscipit velit. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Nulla venenatis pellentesque faucibus.
-            Etiam ut posuere nisl, nec tempus metus. Sed tincidunt ultricies
-            laoreet. Curabitur pulvinar imperdiet ultrices.
+            eget tempor purus diam ut elit.
           </Text>
         </View>
       </ScrollView>
@@ -92,7 +108,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 22,
     fontWeight: "bold",
-    color: colors.black,
+    color: Colors.black,
   },
   price_row: {
     flexDirection: "row",
@@ -107,12 +123,12 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 20,
     fontWeight: "bold",
-    color: colors.secondary,
+    color: Colors.secondary,
     marginRight: 10,
   },
   discount: {
     fontSize: 14,
-    color: colors.red,
+    color: Colors.red,
     fontWeight: "bold",
   },
   section_title: {
@@ -126,22 +142,22 @@ const styles = StyleSheet.create({
   },
   size_button: {
     borderWidth: 1,
-    borderColor: colors.grey,
+    borderColor: Colors.grey,
     borderRadius: 20,
     paddingVertical: 5,
     paddingHorizontal: 15,
     marginRight: 10,
   },
   size_selected: {
-    backgroundColor: colors.secondary,
-    borderColor: colors.secondary,
+    backgroundColor: Colors.secondary,
+    borderColor: Colors.secondary,
   },
   size_text: {
-    color: colors.black,
+    color: Colors.black,
     fontWeight: "bold",
   },
   size_text_selected: {
-    color: colors.white,
+    color: Colors.white,
   },
   tab_row: {
     flexDirection: "row",
@@ -152,27 +168,27 @@ const styles = StyleSheet.create({
     marginRight: 20,
     fontWeight: "bold",
     fontSize: 16,
-    color: colors.grey,
+    color: Colors.grey,
   },
   tab_active: {
-    color: colors.black,
+    color: Colors.black,
     borderBottomWidth: 2,
-    borderBottomColor: colors.primary,
+    borderBottomColor: Colors.primary,
     paddingBottom: 2,
   },
   description: {
     fontSize: 14,
-    color: colors.grey,
+    color: Colors.grey,
     lineHeight: 20,
     marginTop: 10,
   },
   add_to_cart: {
-    backgroundColor: colors.primary,
+    backgroundColor: Colors.primary,
     padding: 15,
     alignItems: "center",
   },
   add_to_cart_text: {
-    color: colors.white,
+    color: Colors.white,
     fontWeight: "bold",
     fontSize: 18,
   },

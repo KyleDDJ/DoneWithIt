@@ -1,16 +1,29 @@
+/**
+ * WelcomeScreen.js
+ *
+ * The landing screen of the app featuring:
+ * - A blurred background image.
+ * - Centered logo and tagline near the top.
+ * - Two buttons ("Login" and "Register") anchored at the bottom.
+ */
+
 import React from "react";
 import { Image, ImageBackground, StyleSheet, View, Text } from "react-native";
+
 import AppButton from "../components/AppButton";
+import BACKGROUND_IMAGE from "../assets/images/background.jpg";
+import LOGO_IMAGE from "../assets/logos/logo-red.png";
 
 function WelcomeScreen(props) {
   return (
     <ImageBackground
       blurRadius={10}
       style={styles.background}
-      source={require("../assets/background.jpg")}
+      source={BACKGROUND_IMAGE}
     >
       <View style={styles.logo_container}>
-        <Image style={styles.logo} source={require("../assets/logo-red.png")} />
+        <Image style={styles.logo} source={LOGO_IMAGE} />
+
         <Text style={styles.tagline}>Sell What You Don't Need</Text>
       </View>
       <View style={styles.button_container}>
@@ -43,7 +56,7 @@ const styles = StyleSheet.create({
   tagline: {
     fontSize: 25,
     fontWeight: "600",
-    padddingVertical: 20,
+    paddingVertical: 20,
   },
 });
 

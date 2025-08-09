@@ -3,55 +3,49 @@ import { StyleSheet, View, FlatList } from "react-native";
 
 import Screen from "../components/Screen";
 import ListItem from "../components/ListItem";
-import colors from "../config/Colors";
+import Colors from "../config/Colors";
 import Icon from "../components/Icon";
 import ListItemSeparatorComponent from "../components/ListItemSeparator";
+import { useMenuItems } from "../hooks/useMenuItems";
+import userImage from "../assets/users/user.jpg";
 
-const menuItems = [
-  {
-    title: "My Listings",
-    icon: {
-      name: "format-list-bulleted",
-      backgroundColor: colors.primary,
-    },
-  },
-  {
-    title: "My Messages",
-    icon: {
-      name: "email",
-      backgroundColor: colors.secondary,
-    },
-  },
-];
+const USER_DETAILS = {
+  name: "Kyle De Jesus",
+  contact: "shangrilaFrontier@gmail.com | +63 912345678",
+};
 
-function AccountScreen(props) {
+function AccountScreen() {
+  const menuItems = useMenuItems();
+
+  const renderMenuItem = ({ item }) => (
+    <ListItem
+      title={item.title}
+      showChevron={false}
+      IconComponent={
+        <Icon
+          name={item.icon.name}
+          backgroundColor={item.icon.backgroundColor}
+        />
+      }
+    />
+  );
+
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
         <ListItem
-          title="Kyle De Jesus"
-          subTitle="shangrilaFrontier@gmail.com | +63 912345678"
-          image={require("../assets/user.jpg")}
+          title={USER_DETAILS.name}
+          subTitle={USER_DETAILS.contact}
+          image={userImage}
           showChevron={false}
         />
       </View>
       <View style={styles.container}>
         <FlatList
           data={menuItems}
-          keyExtractor={(menuItems) => menuItems.title}
+          keyExtractor={(item) => item.title}
           ItemSeparatorComponent={ListItemSeparatorComponent}
-          renderItem={({ item }) => (
-            <ListItem
-              title={item.title}
-              showChevron={false}
-              IconComponent={
-                <Icon
-                  name={item.icon.name}
-                  backgroundColor={item.icon.backgroundColor}
-                />
-              }
-            />
-          )}
+          renderItem={renderMenuItem}
         />
       </View>
       <ListItem
@@ -68,7 +62,7 @@ const styles = StyleSheet.create({
     marginVertical: 20,
   },
   screen: {
-    backgroundColor: colors.lightgrey,
+    backgroundColor: Colors.lightgrey,
   },
 });
 

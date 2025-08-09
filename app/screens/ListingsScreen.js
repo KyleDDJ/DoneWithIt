@@ -1,32 +1,40 @@
+/**
+ * ListingsScreen.js
+ *
+ * This screen displays a list of product listings.
+ *
+ * Features:
+ * - Displays listings in a scrollable FlatList
+ * - Supports pull-to-refresh functionality
+ * - Uses a custom `useListings` hook for state management and data handling
+ *
+ * Data flow:
+ * - Listings data is provided by the `useListings` hook
+ * - Each listing is rendered using the `Card` component
+ *
+ * UI:
+ * - Wrapped inside the `Screen` component for safe area handling and layout consistency
+ * - Light grey background with padding
+ *
+ * @component
+ * @example
+ * return (
+ *   <ListingsScreen />
+ * )
+ */
+
 import React from "react";
 import { FlatList, StyleSheet } from "react-native";
 
-import colors from "../config/Colors";
+import Colors from "../config/Colors";
 import Screen from "../components/Screen";
 import Card from "../components/Card";
 
-const listings = [
-  {
-    id: 1,
-    title: "Red Jacket",
-    price: 100,
-    image: require("../assets/red.jpg"),
-  },
-  {
-    id: 2,
-    title: "Couch in great condition",
-    price: 1000,
-    image: require("../assets/couch.jpg"),
-  },
-  {
-    id: 3,
-    title: "Nintendo Switch 2",
-    price: 3000,
-    image: require("../assets/switch.jpg"),
-  },
-];
+import useListings from "../hooks/useListings";
 
-function ListingsScreen(props) {
+function ListingsScreen() {
+  const { listings, refreshing, handleRefresh } = useListings();
+
   return (
     <Screen style={styles.screen}>
       <FlatList
@@ -39,6 +47,8 @@ function ListingsScreen(props) {
             image={item.image}
           />
         )}
+        refreshing={refreshing}
+        onRefresh={handleRefresh}
       />
     </Screen>
   );
@@ -47,7 +57,7 @@ function ListingsScreen(props) {
 const styles = StyleSheet.create({
   screen: {
     padding: 10,
-    backgroundColor: colors.lightgrey,
+    backgroundColor: Colors.lightgrey,
   },
 });
 

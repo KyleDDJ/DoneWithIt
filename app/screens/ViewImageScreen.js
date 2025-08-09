@@ -1,7 +1,20 @@
+/**
+ * ViewImageScreen.js
+ *
+ * Displays a full-screen image with two overlay icons:
+ * - Close icon at the top-left corner
+ * - Delete icon at the top-right corner
+ *
+ * The image is rendered with a 'contain' resize mode, preserving aspect ratio.
+ * Background is set to black for better image visibility.
+ */
+
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
-import colors from "../config/Colors";
+import Colors from "../config/Colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+
+import CHAIR_IMAGE from "../assets/products/chair.jpg";
 
 function ViewImageScreen(props) {
   return (
@@ -16,11 +29,7 @@ function ViewImageScreen(props) {
           size={35}
         />
       </View>
-      <Image
-        resizeMode="contain"
-        style={styles.image}
-        source={require("../assets/chair.jpg")}
-      />
+      <Image resizeMode="contain" style={styles.image} source={CHAIR_IMAGE} />
     </View>
   );
 }
@@ -37,7 +46,7 @@ const styles = StyleSheet.create({
     right: 30,
   },
   container: {
-    backgroundColor: colors.black,
+    backgroundColor: Colors.black,
     flex: 1,
   },
   image: {

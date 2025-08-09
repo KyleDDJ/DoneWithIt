@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AppText from "./AppText";
-import colors from "../config/Colors";
+import Colors from "../config/Colors";
 
 function CategoryPickerItem({ item, onPress }) {
   return (
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   label_box: {
-    backgroundColor: colors.lightgrey,
+    backgroundColor: Colors.lightgrey,
     borderRadius: 10,
     paddingVertical: 6,
     paddingHorizontal: 10,

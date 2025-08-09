@@ -11,17 +11,44 @@ import {
 } from "../components/forms";
 import Screen from "../components/Screen";
 import CategoryPickerItem from "../components/CategoryPickerItem";
-import Categories from "../config/categories";
-import colors from "../config/Colors";
+import useCategories from "../hooks/useCategories";
+import Colors from "../config/Colors";
 
-const validationSchema = Yup.object().shape({
+/**
+ * Validation schema for the listing form using Yup.
+ * - title: required string, min length 1
+ * - price: required string, between 1 and 1000
+ * - description: optional string
+ * - category: required object, nullable
+ */
+const VALIDATION_SCHEMA = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
   price: Yup.string().required().min(1).max(1000).label("Price"),
   description: Yup.string().label("Description"),
   category: Yup.object().required().nullable().label("Category"),
 });
 
-function ListingEditScreen(props) {
+/**
+ * ListingEditScreen Component
+ *
+ * Renders a form for creating or editing a listing.
+ * Includes:
+ * - Add picture button (placeholder functionality)
+ * - Title input field
+ * - Price input field with numeric keyboard
+ * - Category picker displaying categories fetched from custom hook
+ * - Description multiline input
+ * - Submit button that logs form values on submit
+ *
+ * Utilizes reusable form components: AppForm, AppFormField, AppFormPicker, SubmitButton.
+ *
+ * @returns {JSX.Element}
+ */
+function ListingEditScreen() {
+  // Custom hook to fetch categories for the picker
+  const categories = useCategories();
+
+  // Handler for Add Picture button press (currently just logs to console)
   const handleAddPicture = () => {
     console.log("Add picture tapped");
   };
@@ -36,14 +63,14 @@ function ListingEditScreen(props) {
           category: null,
         }}
         onSubmit={(values) => console.log(values)}
-        validationSchema={validationSchema}
+        validationSchema={VALIDATION_SCHEMA}
       >
         <View style={styles.add_picture_container}>
           <TouchableOpacity
             style={styles.add_picture_button}
             onPress={handleAddPicture}
           >
-            <MaterialCommunityIcons name="plus" size={40} color={colors.grey} />
+            <MaterialCommunityIcons name="plus" size={40} color={Colors.grey} />
           </TouchableOpacity>
         </View>
 
@@ -58,7 +85,7 @@ function ListingEditScreen(props) {
         />
 
         <AppFormPicker
-          items={Categories}
+          items={categories}
           name="category"
           placeholder="Category"
           PickerItemComponent={CategoryPickerItem}
@@ -86,7 +113,7 @@ const styles = StyleSheet.create({
   add_picture_button: {
     width: 100,
     height: 100,
-    backgroundColor: colors.lightgrey,
+    backgroundColor: Colors.lightgrey,
     borderRadius: 50,
     justifyContent: "center",
     alignItems: "center",
