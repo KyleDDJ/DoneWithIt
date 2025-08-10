@@ -11,10 +11,10 @@
 
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
-import Colors from "../config/Colors";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import CHAIR_IMAGE from "../assets/products/chair.jpg";
+import styles from "../styles/ViewImageScreen.styles";
 
 function ViewImageScreen(props) {
   return (
@@ -34,24 +34,4 @@ function ViewImageScreen(props) {
   );
 }
 
-const styles = StyleSheet.create({
-  close_icon: {
-    position: "absolute",
-    top: 40,
-    left: 30,
-  },
-  delete_icon: {
-    position: "absolute",
-    top: 40,
-    right: 30,
-  },
-  container: {
-    backgroundColor: Colors.black,
-    flex: 1,
-  },
-  image: {
-    width: "100%",
-    height: "100%",
-  },
-});
 export default ViewImageScreen;

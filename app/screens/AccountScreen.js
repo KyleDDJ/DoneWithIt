@@ -1,12 +1,12 @@
 import React from "react";
-import { StyleSheet, View, FlatList } from "react-native";
+import { View, FlatList } from "react-native";
 
 import Screen from "../components/Screen";
 import ListItem from "../components/ListItem";
-import Colors from "../config/Colors";
 import Icon from "../components/Icon";
 import ListItemSeparatorComponent from "../components/ListItemSeparator";
 import { useMenuItems } from "../hooks/useMenuItems";
+import styles from "../styles/AccountScreen.styles";
 import userImage from "../assets/users/user.jpg";
 
 const USER_DETAILS = {
@@ -56,14 +56,5 @@ function AccountScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    marginVertical: 20,
-  },
-  screen: {
-    backgroundColor: Colors.lightgrey,
-  },
-});
 
 export default AccountScreen;

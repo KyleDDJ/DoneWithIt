@@ -26,7 +26,7 @@
 import React from "react";
 import { FlatList, StyleSheet } from "react-native";
 
-import Colors from "../config/Colors";
+import styles from "../styles/ListingsScreen.styles";
 import Screen from "../components/Screen";
 import Card from "../components/Card";
 
@@ -53,12 +53,5 @@ function ListingsScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  screen: {
-    padding: 10,
-    backgroundColor: Colors.lightgrey,
-  },
-});
 
 export default ListingsScreen;

@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 import * as Yup from "yup";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
@@ -9,6 +9,7 @@ import {
   AppFormPicker,
   SubmitButton,
 } from "../components/forms";
+import styles from "../styles/ListingEditScreen.styles";
 import Screen from "../components/Screen";
 import CategoryPickerItem from "../components/CategoryPickerItem";
 import useCategories from "../hooks/useCategories";
@@ -105,24 +106,5 @@ function ListingEditScreen() {
     </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 10,
-  },
-  add_picture_button: {
-    width: 100,
-    height: 100,
-    backgroundColor: Colors.lightgrey,
-    borderRadius: 50,
-    justifyContent: "center",
-    alignItems: "center",
-    marginBottom: 20,
-  },
-  add_picture_container: {
-    alignItems: "center",
-    marginVertical: 20,
-  },
-});
 
 export default ListingEditScreen;

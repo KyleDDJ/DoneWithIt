@@ -13,6 +13,7 @@ import { Image, ImageBackground, StyleSheet, View, Text } from "react-native";
 import AppButton from "../components/AppButton";
 import BACKGROUND_IMAGE from "../assets/images/background.jpg";
 import LOGO_IMAGE from "../assets/logos/logo-red.png";
+import styles from "../styles/WelcomeScreen.styles";
 
 function WelcomeScreen(props) {
   return (
@@ -33,31 +34,5 @@ function WelcomeScreen(props) {
     </ImageBackground>
   );
 }
-
-const styles = StyleSheet.create({
-  background: {
-    flex: 1,
-    justifyContent: "flex-end",
-    alignItems: "center",
-  },
-  button_container: {
-    padding: 20,
-    width: "100%",
-  },
-  logo: {
-    width: 100,
-    height: 100,
-  },
-  logo_container: {
-    alignItems: "center",
-    position: "absolute",
-    top: 70,
-  },
-  tagline: {
-    fontSize: 25,
-    fontWeight: "600",
-    paddingVertical: 20,
-  },
-});
 
 export default WelcomeScreen;

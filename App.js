@@ -13,7 +13,7 @@ export default function App() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Screen>
-        <ListingDetailsScreen />
+        <AccountScreen />
       </Screen>
     </GestureHandlerRootView>
   );
