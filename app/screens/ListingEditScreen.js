@@ -14,6 +14,7 @@ import Screen from "../components/Screen";
 import CategoryPickerItem from "../components/CategoryPickerItem";
 import useCategories from "../hooks/useCategories";
 import Colors from "../config/Colors";
+import FormImagePIcker from "../components/forms/FormImagePIcker";
 
 /**
  * Validation schema for the listing form using Yup.
@@ -21,12 +22,15 @@ import Colors from "../config/Colors";
  * - price: required string, between 1 and 1000
  * - description: optional string
  * - category: required object, nullable
+ * - images: Required array, at least one image selected
  */
 const VALIDATION_SCHEMA = Yup.object().shape({
   title: Yup.string().required().min(1).label("Title"),
   price: Yup.string().required().min(1).max(1000).label("Price"),
   description: Yup.string().label("Description"),
-  category: Yup.object().required().nullable().label("Category"),
+  category: Yup.object().nullable().required().label("Category"),
+
+  images: Yup.array().min(1, "Please select atleast one image"),
 });
 
 /**
@@ -62,19 +66,12 @@ function ListingEditScreen() {
           price: "",
           description: "",
           category: null,
+          images: [],
         }}
         onSubmit={(values) => console.log(values)}
         validationSchema={VALIDATION_SCHEMA}
       >
-        <View style={styles.add_picture_container}>
-          <TouchableOpacity
-            style={styles.add_picture_button}
-            onPress={handleAddPicture}
-          >
-            <MaterialCommunityIcons name="plus" size={40} color={Colors.grey} />
-          </TouchableOpacity>
-        </View>
-
+        <FormImagePIcker name="images" />
         <AppFormField maxLength={255} name="title" placeholder="Title" />
 
         <AppFormField
