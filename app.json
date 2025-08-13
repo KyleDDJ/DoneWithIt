@@ -4,13 +4,13 @@
     "slug": "DoneWithIt",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./app/assets/icons/icon.png",
+    "icon": "./app/assets/icons/logo-red.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./app/assets/icons/splash-icon.png",
+      "image": "./app/assets/images/splashScreen.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#e63c4b"
     },
     "ios": {
       "supportsTablet": true

@@ -11,11 +11,6 @@ import userImage from "../assets/users/user.jpg";
 import AuthContext from "../auth/context";
 import authStorage from "../auth/storage";
 
-// const USER_DETAILS = {
-//   name: "Kyle De Jesus",
-//   contact: "shangrilaFrontier@gmail.com | +63 912345678",
-// };
-
 function AccountScreen({ navigation }) {
   const { user, setUser } = useContext(AuthContext);
 
