@@ -10,6 +10,8 @@ import stylesRegister from "../styles/RegisterScreen.styles";
 import usersApi from "../api/users";
 import useAuth from "../hooks/useAuth";
 import authApi from "../api/auth";
+import useApis from "../hooks/useApis";
+import ActivityIndicator from "../components/ActivityIndicator";
 
 /**
  * Validation schema for the registration form using Yup.
@@ -59,11 +61,14 @@ function RegisterScreen({ navigation }) {
    *
    * @param {object} values - Form values containing name, email, and password
    */
+  const registerApi = useApis(usersApi.register);
+  const loginApi = useApis(authApi.login);
+
   const auth = useAuth();
   const [error, setError] = useState();
 
   const handleSubmit = async (userInfo) => {
-    const result = await usersApi.register(userInfo);
+    const result = await registerApi.request(userInfo);
 
     if (!result.ok) {
       if (result.data) setError(result.data.error);
@@ -74,7 +79,7 @@ function RegisterScreen({ navigation }) {
       return;
     }
 
-    const { data: authToken } = await authApi.login(
+    const { data: authToken } = await loginApi.request(
       userInfo.email,
       userInfo.password
     );
@@ -82,46 +87,51 @@ function RegisterScreen({ navigation }) {
   };
 
   return (
-    <Screen style={stylesLogin.container}>
-      <Image style={stylesLogin.logo} source={LOGO_IMAGE} />
-      <Text style={stylesRegister.title}>Create an Account</Text>
-      {error && <Text style={{ color: "red", marginBottom: 10 }}>{error}</Text>}
-      <AppForm
-        initialValues={{ name: "", email: "", password: "" }}
-        onSubmit={handleSubmit}
-        validationSchema={VALIDATION_SCHEMA}
-      >
-        <AppFormField
-          name="name"
-          placeholder="Full Name"
-          icon="account"
-          autoCapitalize="words"
-        />
-        <AppFormField
-          name="email"
-          placeholder="Email"
-          icon="email"
-          autoCapitalize="none"
-          keyboardType="email-address"
-        />
-        <AppFormField
-          name="password"
-          placeholder="Password"
-          icon="lock"
-          secureTextEntry={!showPassword}
-          rightIcon={showPassword ? "eye-off" : "eye"}
-          onRightIconPress={togglePasswordVisibility}
-          autoCapitalize="none"
-        />
-        <SubmitButton title="Register" />
-      </AppForm>
+    <>
+      <ActivityIndicator visible={registerApi.loading || loginApi.loading} />
+      <Screen style={stylesLogin.container}>
+        <Image style={stylesLogin.logo} source={LOGO_IMAGE} />
+        <Text style={stylesRegister.title}>Create an Account</Text>
+        {error && (
+          <Text style={{ color: "red", marginBottom: 10 }}>{error}</Text>
+        )}
+        <AppForm
+          initialValues={{ name: "", email: "", password: "" }}
+          onSubmit={handleSubmit}
+          validationSchema={VALIDATION_SCHEMA}
+        >
+          <AppFormField
+            name="name"
+            placeholder="Full Name"
+            icon="account"
+            autoCapitalize="words"
+          />
+          <AppFormField
+            name="email"
+            placeholder="Email"
+            icon="email"
+            autoCapitalize="none"
+            keyboardType="email-address"
+          />
+          <AppFormField
+            name="password"
+            placeholder="Password"
+            icon="lock"
+            secureTextEntry={!showPassword}
+            rightIcon={showPassword ? "eye-off" : "eye"}
+            onRightIconPress={togglePasswordVisibility}
+            autoCapitalize="none"
+          />
+          <SubmitButton title="Register" />
+        </AppForm>
 
-      <TouchableOpacity onPress={() => navigation.navigate("Login")}>
-        <Text style={stylesRegister.loginLink}>
-          Already have an account? Login
-        </Text>
-      </TouchableOpacity>
-    </Screen>
+        <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+          <Text style={stylesRegister.loginLink}>
+            Already have an account? Login
+          </Text>
+        </TouchableOpacity>
+      </Screen>
+    </>
   );
 }
 

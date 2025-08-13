@@ -19,10 +19,14 @@ function ActivityIndicator({ visible = false }) {
 
 const styles = StyleSheet.create({
   overlay: {
-    ...StyleSheet.absoluteFillObject,
+    position: "absolute",
+    height: "100%",
+    width: "100%",
     justifyContent: "center",
     alignItems: "center",
     zIndex: 1,
+    backgroundColor: "white",
+    opacity: 0.8,
   },
   animation: {
     width: 150,

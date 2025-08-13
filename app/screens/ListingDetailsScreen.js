@@ -5,9 +5,13 @@ import stylesDetails from "../styles/ListingDetailsScreen.styles";
 import AppText from "../components/AppText";
 import Colors from "../config/Colors";
 import Screen from "../components/Screen";
+import stylesAccount from "../styles/AccountScreen.styles";
+import ListItem from "../components/ListItem";
+import userImage from "../assets/users/user.jpg";
 
 function ListingDetailsScreen({ route }) {
   const listing = route.params;
+  const { user } = useAuth();
   return (
     <Screen style={{ backgroundColor: Colors.white }}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -20,6 +24,15 @@ function ListingDetailsScreen({ route }) {
           resizeMode="cover"
         />
 
+        <View style={stylesAccount.container}>
+          <ListItem
+            title={user.name}
+            subTitle={`5 Listings`}
+            image={userImage}
+            showChevron={true}
+          />
+        </View>
+
         <View style={stylesDetails.details_container}>
           <View style={stylesDetails.price_row}>
             <AppText style={stylesDetails.title}>{listing.title}</AppText>
@@ -27,8 +40,6 @@ function ListingDetailsScreen({ route }) {
               <Text style={stylesDetails.price}>${listing.price}</Text>
             </View>
           </View>
-
-          {/* *userInfo here  in The ACCOUNT* */}
 
           <View style={stylesDetails.tab_row}>
             <Text style={[stylesDetails.tab_text, stylesDetails.tab_active]}>
