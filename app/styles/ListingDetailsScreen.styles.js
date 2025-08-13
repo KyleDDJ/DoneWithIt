@@ -4,7 +4,7 @@ import Colors from "../config/Colors";
 const styles = StyleSheet.create({
   image: {
     width: "100%",
-    height: 350,
+    height: 250,
   },
   details_container: {
     padding: 15,
@@ -29,11 +29,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: Colors.secondary,
     marginRight: 10,
-  },
-  discount: {
-    fontSize: 14,
-    color: Colors.red,
-    fontWeight: "bold",
   },
   section_title: {
     fontWeight: "bold",
@@ -85,16 +80,6 @@ const styles = StyleSheet.create({
     color: Colors.grey,
     lineHeight: 20,
     marginTop: 10,
-  },
-  add_to_cart: {
-    backgroundColor: Colors.primary,
-    padding: 15,
-    alignItems: "center",
-  },
-  add_to_cart_text: {
-    color: Colors.white,
-    fontWeight: "bold",
-    fontSize: 18,
   },
 });
 

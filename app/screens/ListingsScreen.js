@@ -1,54 +1,49 @@
-/**
- * ListingsScreen.js
- *
- * This screen displays a list of product listings.
- *
- * Features:
- * - Displays listings in a scrollable FlatList
- * - Supports pull-to-refresh functionality
- * - Uses a custom `useListings` hook for state management and data handling
- *
- * Data flow:
- * - Listings data is provided by the `useListings` hook
- * - Each listing is rendered using the `Card` component
- *
- * UI:
- * - Wrapped inside the `Screen` component for safe area handling and layout consistency
- * - Light grey background with padding
- *
- * @component
- * @example
- * return (
- *   <ListingsScreen />
- * )
- */
-
-import React from "react";
-import { FlatList, StyleSheet } from "react-native";
-
-import styles from "../styles/ListingsScreen.styles";
+import React, { useEffect } from "react";
+import { FlatList } from "react-native";
+import ActivityIndicator from "../components/ActivityIndicator";
+import stylesListings from "../styles/ListingsScreen.styles";
 import Screen from "../components/Screen";
 import Card from "../components/Card";
+import routes from "../navigation/routes";
+import AppText from "../components/AppText";
+import AppButton from "../components/AppButton";
+import useApis from "../hooks/useApis";
+import listingsApi from "../api/listings";
 
-import useListings from "../hooks/useListings";
+function ListingsScreen({ navigation }) {
+  const {
+    data: listings,
+    error,
+    loading,
+    request: loadListings,
+  } = useApis(listingsApi.getListings);
 
-function ListingsScreen() {
-  const { listings, refreshing, handleRefresh } = useListings();
+  useEffect(() => {
+    loadListings(1, 2, 3);
+  }, []);
 
   return (
-    <Screen style={styles.screen}>
+    <Screen style={stylesListings.screen}>
+      {error && (
+        <>
+          <AppText>Couldn't retrieve the listings.</AppText>
+          <AppButton title="Retry" onPress={loadListings} />
+        </>
+      )}
+      <ActivityIndicator visible={loading} />
       <FlatList
         data={listings}
         keyExtractor={(listing) => listing.id.toString()}
         renderItem={({ item }) => (
           <Card
             title={item.title}
-            sub_title={"$" + item.price}
-            image={item.image}
+            sub_title={`$${item.price}`}
+            imageUrl={
+              item.images?.[0]?.url || "https://via.placeholder.com/200"
+            }
+            onPress={() => navigation.navigate(routes.LISTING_DETAILS, item)}
           />
         )}
-        refreshing={refreshing}
-        onRefresh={handleRefresh}
       />
     </Screen>
   );

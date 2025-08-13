@@ -5,7 +5,7 @@
  * It includes:
  * - Form inputs for email and password with validation using Yup.
  * - Toggle to show/hide password visibility.
- * - Links for "Forgot Password?" and "Register" actions.
+ * - Links for "Forgot Password?" actions.
  * - Social login buttons for Google, QQ, and Facebook.
  *
  * Validation:
@@ -30,7 +30,7 @@ import * as Yup from "yup";
 import Screen from "../components/Screen";
 import LOGO_IMAGE from "../assets/logos/logo-red.png";
 import { AppForm, AppFormField, SubmitButton } from "../components/forms";
-import styles from "../styles/LoginScreen.styles";
+import stylesLogin from "../styles/LoginScreen.styles";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -43,11 +43,6 @@ function LoginScreen() {
     console.log("Forgot Password tapped");
   };
 
-  const handleRegister = () => {
-    console.log("Register tapped");
-  };
-  const handleSocialLogin = (platform) => console.log(`Login with ${platform}`);
-
   const socialLogins = [
     { name: "google", color: "#DB4437", iconSet: AntDesign },
     { name: "qq", color: "#12B7F5", iconSet: FontAwesome },
@@ -55,8 +50,8 @@ function LoginScreen() {
   ];
 
   return (
-    <Screen style={styles.container}>
-      <Image style={styles.logo} source={LOGO_IMAGE} />
+    <Screen style={stylesLogin.container}>
+      <Image style={stylesLogin.logo} source={LOGO_IMAGE} />
       <AppForm
         initialValues={{ email: "", password: "" }}
         onSubmit={(values) => console.log(values)}
@@ -81,23 +76,20 @@ function LoginScreen() {
           onRightIconPress={() => setShowPassword(!showPassword)}
         />
         <SubmitButton title="Login" />
-        <View style={styles.link_container}>
+        <View style={stylesLogin.link_container}>
           <TouchableWithoutFeedback onPress={handleForgotPassword}>
-            <Text style={styles.link}>Forgot Password?</Text>
-          </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback onPress={handleRegister}>
-            <Text style={styles.link}>Register</Text>
+            <Text style={stylesLogin.link}>Forgot Password?</Text>
           </TouchableWithoutFeedback>
         </View>
-        <View style={styles.or_container}>
-          <Text style={styles.text}>OR</Text>
+        <View style={stylesLogin.or_container}>
+          <Text style={stylesLogin.text}>OR</Text>
         </View>
-        <View style={styles.social_login_container}>
+        <View style={stylesLogin.social_login_container}>
           {socialLogins.map(({ name, color, iconSet: Icon }, index) => (
             <TouchableOpacity
               key={index}
               onPress={() => handleSocialLogin(name)}
-              style={[styles.social_button, { backgroundColor: color }]}
+              style={[stylesLogin.social_button, { backgroundColor: color }]}
             >
               <Icon name={name} size={20} color="white" />
             </TouchableOpacity>

@@ -4,7 +4,6 @@
  * This screen displays a list of messages (mock or from API) with support for:
  * - Swipe-to-delete functionality
  * - Pull-to-refresh functionality
- * - Footer navigation actions
  *
  * The data and logic are managed by the custom `useMessages` hook, which:
  *   - Stores the message list in local state
@@ -20,7 +19,7 @@ import ListItem from "../components/ListItem";
 import Screen from "../components/Screen";
 import ListItemSeparator from "../components/ListItemSeparator";
 import ListItemDeleteAction from "../components/ListItemDeleteAction";
-import Footer from "../components/Footer";
+// import styles from "../styles/MessagesScreen.styles";
 
 // Custom hook to handle message state & actions
 import useMessages from "../hooks/useMessages";
@@ -54,16 +53,6 @@ function MessagesScreen() {
         ItemSeparatorComponent={ListItemSeparator}
         refreshing={refreshing}
         onRefresh={handleRefresh}
-      />
-
-      {/**
-       * Footer:
-       * - Provides bottom navigation buttons.
-       */}
-      <Footer
-        onPlusPress={() => console.log("New Message pressed")}
-        onChatsPress={() => console.log("Chats pressed")}
-        onMenusPress={() => console.log("Menus pressed")}
       />
     </Screen>
   );

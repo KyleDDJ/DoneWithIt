@@ -1,7 +1,5 @@
-import React from "react";
-import { TouchableOpacity, View } from "react-native";
+import React, { useEffect, useState } from "react";
 import * as Yup from "yup";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import {
   AppForm,
@@ -9,12 +7,12 @@ import {
   AppFormPicker,
   SubmitButton,
 } from "../components/forms";
-import styles from "../styles/ListingEditScreen.styles";
+import stylesEdit from "../styles/ListingEditScreen.styles";
 import Screen from "../components/Screen";
 import CategoryPickerItem from "../components/CategoryPickerItem";
 import useCategories from "../hooks/useCategories";
-import Colors from "../config/Colors";
-import FormImagePIcker from "../components/forms/FormImagePIcker";
+import FormImagePicker from "../components/forms/FormImagePicker";
+import useLocation from "../hooks/useLocation";
 
 /**
  * Validation schema for the listing form using Yup.
@@ -29,7 +27,6 @@ const VALIDATION_SCHEMA = Yup.object().shape({
   price: Yup.string().required().min(1).max(1000).label("Price"),
   description: Yup.string().label("Description"),
   category: Yup.object().nullable().required().label("Category"),
-
   images: Yup.array().min(1, "Please select atleast one image"),
 });
 
@@ -50,16 +47,12 @@ const VALIDATION_SCHEMA = Yup.object().shape({
  * @returns {JSX.Element}
  */
 function ListingEditScreen() {
+  const location = useLocation();
   // Custom hook to fetch categories for the picker
   const categories = useCategories();
 
-  // Handler for Add Picture button press (currently just logs to console)
-  const handleAddPicture = () => {
-    console.log("Add picture tapped");
-  };
-
   return (
-    <Screen style={styles.container}>
+    <Screen style={stylesEdit.container}>
       <AppForm
         initialValues={{
           title: "",
@@ -68,10 +61,10 @@ function ListingEditScreen() {
           category: null,
           images: [],
         }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={(values) => console.log(location)}
         validationSchema={VALIDATION_SCHEMA}
       >
-        <FormImagePIcker name="images" />
+        <FormImagePicker name="images" />
         <AppFormField maxLength={255} name="title" placeholder="Title" />
 
         <AppFormField

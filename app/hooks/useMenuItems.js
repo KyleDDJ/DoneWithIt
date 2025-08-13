@@ -8,6 +8,7 @@ export function useMenuItems() {
         name: "format-list-bulleted",
         backgroundColor: colors.primary,
       },
+      targetScreen: "MyListings",
     },
     {
       title: "My Messages",
@@ -15,6 +16,7 @@ export function useMenuItems() {
         name: "email",
         backgroundColor: colors.secondary,
       },
+      targetScreen: "Messages",
     },
   ];
 }

@@ -13,23 +13,27 @@ import { Image, ImageBackground, StyleSheet, View, Text } from "react-native";
 import AppButton from "../components/AppButton";
 import BACKGROUND_IMAGE from "../assets/images/background.jpg";
 import LOGO_IMAGE from "../assets/logos/logo-red.png";
-import styles from "../styles/WelcomeScreen.styles";
+import stylesWelcome from "../styles/WelcomeScreen.styles";
 
-function WelcomeScreen(props) {
+function WelcomeScreen({ navigation }) {
   return (
     <ImageBackground
       blurRadius={10}
-      style={styles.background}
+      style={stylesWelcome.background}
       source={BACKGROUND_IMAGE}
     >
-      <View style={styles.logo_container}>
-        <Image style={styles.logo} source={LOGO_IMAGE} />
+      <View style={stylesWelcome.logo_container}>
+        <Image style={stylesWelcome.logo} source={LOGO_IMAGE} />
 
-        <Text style={styles.tagline}>Sell What You Don't Need</Text>
+        <Text style={stylesWelcome.tagline}>Sell What You Don't Need</Text>
       </View>
-      <View style={styles.button_container}>
-        <AppButton title="Login" />
-        <AppButton title="Register" color="secondary" />
+      <View style={stylesWelcome.button_container}>
+        <AppButton title="Login" onPress={() => navigation.navigate("Login")} />
+        <AppButton
+          title="Register"
+          color="secondary"
+          onPress={() => navigation.navigate("Register")}
+        />
       </View>
     </ImageBackground>
   );

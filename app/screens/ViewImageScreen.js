@@ -14,22 +14,26 @@ import { Image, StyleSheet, View } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import CHAIR_IMAGE from "../assets/products/chair.jpg";
-import styles from "../styles/ViewImageScreen.styles";
+import stylesViewImage from "../styles/ViewImageScreen.styles";
 
 function ViewImageScreen(props) {
   return (
-    <View style={styles.container}>
-      <View style={styles.close_icon}>
+    <View style={stylesViewImage.container}>
+      <View style={stylesViewImage.close_icon}>
         <MaterialCommunityIcons name="close" color="white" size={35} />
       </View>
-      <View style={styles.delete_icon}>
+      <View style={stylesViewImage.delete_icon}>
         <MaterialCommunityIcons
           name="trash-can-outline"
           color="white"
           size={35}
         />
       </View>
-      <Image resizeMode="contain" style={styles.image} source={CHAIR_IMAGE} />
+      <Image
+        resizeMode="contain"
+        style={stylesViewImage.image}
+        source={CHAIR_IMAGE}
+      />
     </View>
   );
 }

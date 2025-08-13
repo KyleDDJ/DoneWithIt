@@ -6,7 +6,7 @@ import ListItem from "../components/ListItem";
 import Icon from "../components/Icon";
 import ListItemSeparatorComponent from "../components/ListItemSeparator";
 import { useMenuItems } from "../hooks/useMenuItems";
-import styles from "../styles/AccountScreen.styles";
+import stylesAccount from "../styles/AccountScreen.styles";
 import userImage from "../assets/users/user.jpg";
 
 const USER_DETAILS = {
@@ -14,7 +14,7 @@ const USER_DETAILS = {
   contact: "shangrilaFrontier@gmail.com | +63 912345678",
 };
 
-function AccountScreen() {
+function AccountScreen({ navigation }) {
   const menuItems = useMenuItems();
 
   const renderMenuItem = ({ item }) => (
@@ -27,12 +27,13 @@ function AccountScreen() {
           backgroundColor={item.icon.backgroundColor}
         />
       }
+      onPress={() => navigation.navigate(item.targetScreen)}
     />
   );
 
   return (
-    <Screen style={styles.screen}>
-      <View style={styles.container}>
+    <Screen style={stylesAccount.screen}>
+      <View style={stylesAccount.container}>
         <ListItem
           title={USER_DETAILS.name}
           subTitle={USER_DETAILS.contact}
@@ -40,7 +41,7 @@ function AccountScreen() {
           showChevron={false}
         />
       </View>
-      <View style={styles.container}>
+      <View style={stylesAccount.container}>
         <FlatList
           data={menuItems}
           keyExtractor={(item) => item.title}

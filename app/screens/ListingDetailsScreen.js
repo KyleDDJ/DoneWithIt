@@ -1,62 +1,41 @@
 import React from "react";
 import { View, Image, TouchableOpacity, ScrollView, Text } from "react-native";
-import styles from "../styles/ListingDetailsScreen.styles";
+import stylesDetails from "../styles/ListingDetailsScreen.styles";
 import AppText from "../components/AppText";
-import COLORS from "../config/Colors";
+import Colors from "../config/Colors";
 import Screen from "../components/Screen";
 import useSelectedSize from "../hooks/useSelectedSize";
-import RED_JACKET_IMAGE from "../assets/products/red.jpg";
 
-function ListingDetailsScreen() {
+function ListingDetailsScreen({ route }) {
   const { selectedSize, setSelectedSize } = useSelectedSize();
-
+  const listing = route.params;
   return (
-    <Screen style={{ backgroundColor: COLORS.white }}>
+    <Screen style={{ backgroundColor: Colors.white }}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Image
-          style={styles.image}
-          source={RED_JACKET_IMAGE}
+          style={stylesDetails.image}
+          source={listing.image}
           resizeMode="cover"
         />
 
-        <View style={styles.details_container}>
-          <View style={styles.price_row}>
-            <AppText style={styles.title}>Stylish Red Jacket</AppText>
-            <View style={styles.price_discount}>
-              <Text style={styles.price}>$3000</Text>
-              <Text style={styles.discount}>35% OFF</Text>
+        <View style={stylesDetails.details_container}>
+          <View style={stylesDetails.price_row}>
+            <AppText style={stylesDetails.title}>{listing.title}</AppText>
+            <View style={stylesDetails.price_discount}>
+              <Text style={stylesDetails.price}>${listing.price}</Text>
             </View>
           </View>
 
-          <Text style={styles.section_title}>Choose size</Text>
-          <View style={styles.size_row}>
-            {["S", "M", "L", "XL"].map((size) => (
-              <TouchableOpacity
-                key={size}
-                style={[
-                  styles.size_button,
-                  selectedSize === size && styles.size_selected,
-                ]}
-                onPress={() => setSelectedSize(size)}
-              >
-                <Text
-                  style={[
-                    styles.size_text,
-                    selectedSize === size && styles.size_text_selected,
-                  ]}
-                >
-                  {size}
-                </Text>
-              </TouchableOpacity>
-            ))}
+          {/* *userInfo here  in The ACCOUNT* */}
+
+          <View style={stylesDetails.tab_row}>
+            <Text style={[stylesDetails.tab_text, stylesDetails.tab_active]}>
+              Details
+            </Text>
+            <Text style={stylesDetails.tab_text}>Review</Text>
           </View>
 
-          <View style={styles.tab_row}>
-            <Text style={[styles.tab_text, styles.tab_active]}>Details</Text>
-            <Text style={styles.tab_text}>Review</Text>
-          </View>
-
-          <Text style={styles.description}>
+          <Text style={stylesDetails.description}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
             iaculis lacinia ligula sit amet maximus. Vestibulum ac tortor magna.
             Ut vulputate, ipsum eu placerat aliquam, risus nisl eleifend lectus,
@@ -64,10 +43,6 @@ function ListingDetailsScreen() {
           </Text>
         </View>
       </ScrollView>
-
-      <TouchableOpacity style={styles.add_to_cart}>
-        <Text style={styles.add_to_cart_text}>Add To Cart</Text>
-      </TouchableOpacity>
     </Screen>
   );
 }
