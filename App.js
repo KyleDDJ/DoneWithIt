@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
-import { jwtDecode } from "jwt-decode";
 import * as SplashScreen from "expo-splash-screen";
 
 import navigationTheme from "./app/navigation/NavigationTheme";
@@ -13,30 +12,30 @@ import authStorage from "./app/auth/storage";
 
 export default function App() {
   const [user, setUser] = useState();
-  const [appReady, setAppReady] = useState(false);
+  const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     const prepare = async () => {
       try {
-        const token = await authStorage.getToken();
-        if (token) setUser(jwtDecode(token));
+        const user = await authStorage.getUser();
+        if (user) setUser(user);
       } catch (error) {
         console.warn(error);
       } finally {
-        setAppReady(true);
+        setIsReady(true);
       }
     };
     prepare();
   }, []);
 
   const onLayoutRootView = useCallback(async () => {
-    if (appReady) {
+    if (isReady) {
       // Hide splash once the UI is actually ready
       await SplashScreen.hideAsync();
     }
-  }, [appReady]);
+  }, [isReady]);
 
-  if (!appReady) {
+  if (!isReady) {
     return null; // Keep splash visible
   }
 
