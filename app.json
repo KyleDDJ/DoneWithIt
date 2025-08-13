@@ -20,7 +20,8 @@
         "foregroundImage": "./app/assets/icons/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.kyleddj.DoneWithIt"
     },
     "web": {
       "favicon": "./app/assets/icons/favicon.png"
@@ -30,9 +31,7 @@
         "projectId": "b0617ca5-da13-4627-b078-da30bdd4d057"
       }
     },
-    "runtimeVersion": {
-      "policy": "appVersion"
-    },
+    "runtimeVersion": "1.0.0",
     "updates": {
       "url": "https://u.expo.dev/b0617ca5-da13-4627-b078-da30bdd4d057"
     },

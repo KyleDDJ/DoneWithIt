@@ -4,19 +4,22 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import ListingEditScreen from "../screens/ListingEditScreen";
 import FeedNavigator from "./FeedNavigator";
+
 import AccountNavigator from "./AccountNavigator";
 import NewListingButton from "./NewListingButton";
+import useNotifications from "../hooks/useNotifications";
 
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
+  useNotifications((notification) => {
+    console.log("Received notification:", notification);
+  });
   return (
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
-        tabBarStyle: {
-          backgroundColor: "white",
-        },
+        tabBarStyle: { backgroundColor: "white" },
       }}
     >
       <Tab.Screen
