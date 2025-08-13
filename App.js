@@ -9,6 +9,7 @@ import NetInfo, { useNetInfo } from "@react-native-community/netinfo";
 import Screen from "./app/components/Screen";
 import navigationTheme from "./app/navigation/NavigationTheme";
 import AppNavigator from "./app/navigation/AppNavigator";
+import OfflineNotice from "./app/components/OfflineNotice";
 
 // const Tweets = ({ navigation }) => (
 //   <Screen>
@@ -71,10 +72,13 @@ export default function App() {
   // };
   // demo();
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <NavigationContainer theme={navigationTheme}>
-        <AppNavigator />
-      </NavigationContainer>
-    </GestureHandlerRootView>
+    <>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <OfflineNotice />
+        <NavigationContainer theme={navigationTheme}>
+          <AppNavigator />
+        </NavigationContainer>
+      </GestureHandlerRootView>
+    </>
   );
 }
