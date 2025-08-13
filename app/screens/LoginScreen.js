@@ -15,10 +15,9 @@
  * Uses custom form components (AppForm, AppFormField, SubmitButton) and a
  * shared Screen layout component.
  */
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import {
   Image,
-  StyleSheet,
   Text,
   TouchableOpacity,
   TouchableWithoutFeedback,
@@ -35,12 +34,9 @@ import {
   AppFormField,
   SubmitButton,
 } from "../components/forms";
-import { jwtDecode } from "jwt-decode";
 
 import authApi from "../api/auth";
 import stylesLogin from "../styles/LoginScreen.styles";
-import AuthContext from "../auth/context";
-import authStorage from "../auth/storage";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
@@ -48,7 +44,7 @@ const validationSchema = Yup.object().shape({
 });
 
 function LoginScreen() {
-  const authContext = useContext(AuthContext);
+  const { logIn } = useAuth();
   const [loginFailed, setLoginFailed] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const handleForgotPassword = () => {
@@ -65,9 +61,7 @@ function LoginScreen() {
     const result = await authApi.login(email, password);
     if (!result.ok) return setLoginFailed(true);
     setLoginFailed(false);
-    const user = jwtDecode(result.data);
-    authContext.setUser(user);
-    authStorage.storeToken(result.data);
+    logIn(result.data);
   };
   return (
     <Screen style={stylesLogin.container}>
