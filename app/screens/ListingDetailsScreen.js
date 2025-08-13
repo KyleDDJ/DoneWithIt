@@ -1,5 +1,6 @@
 import React from "react";
-import { View, Image, ScrollView, Text } from "react-native";
+import { View, ScrollView, Text } from "react-native";
+import { Image } from "react-native-expo-image-cache";
 import stylesDetails from "../styles/ListingDetailsScreen.styles";
 import AppText from "../components/AppText";
 import Colors from "../config/Colors";
@@ -12,7 +13,10 @@ function ListingDetailsScreen({ route }) {
       <ScrollView showsVerticalScrollIndicator={false}>
         <Image
           style={stylesDetails.image}
-          source={{ uri: listing.images[0].url }}
+          tint="light"
+          preview={{ uri: listing.images[0].thumbnailUrl }}
+          // source={{ uri: listing.images[0].url }}
+          uri={listing.images[0].url}
           resizeMode="cover"
         />
 
