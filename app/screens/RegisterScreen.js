@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import { Image, Text, TouchableOpacity } from "react-native";
 import * as Yup from "yup";
 
-import Colors from "../config/Colors";
 import Screen from "../components/Screen";
 import LOGO_IMAGE from "../assets/logos/logo-red.png";
 import { AppForm, AppFormField, SubmitButton } from "../components/forms";
 import stylesLogin from "../styles/LoginScreen.styles";
 import stylesRegister from "../styles/RegisterScreen.styles";
+import usersApi from "../api/users";
+import useAuth from "../hooks/useAuth";
+import authApi from "../api/auth";
 
 /**
  * Validation schema for the registration form using Yup.
@@ -57,34 +59,44 @@ function RegisterScreen({ navigation }) {
    *
    * @param {object} values - Form values containing name, email, and password
    */
-  const handleRegister = (values) => {
-    console.log("Registering:", values);
-    navigation.navigate("Login");
+  const auth = useAuth();
+  const [error, setError] = useState();
+
+  const handleSubmit = async (userInfo) => {
+    const result = await usersApi.register(userInfo);
+
+    if (!result.ok) {
+      if (result.data) setError(result.data.error);
+      else {
+        setError("An unexpected error occurred.");
+        console.log(result);
+      }
+      return;
+    }
+
+    const { data: authToken } = await authApi.login(
+      userInfo.email,
+      userInfo.password
+    );
+    auth.logIn(authToken);
   };
 
   return (
     <Screen style={stylesLogin.container}>
-      {/* App Logo */}
       <Image style={stylesLogin.logo} source={LOGO_IMAGE} />
-
-      {/* Page Title */}
       <Text style={stylesRegister.title}>Create an Account</Text>
-
-      {/* Registration Form */}
+      {error && <Text style={{ color: "red", marginBottom: 10 }}>{error}</Text>}
       <AppForm
         initialValues={{ name: "", email: "", password: "" }}
-        onSubmit={handleRegister}
+        onSubmit={handleSubmit}
         validationSchema={VALIDATION_SCHEMA}
       >
-        {/* Full Name Field */}
         <AppFormField
           name="name"
           placeholder="Full Name"
           icon="account"
           autoCapitalize="words"
         />
-
-        {/* Email Field */}
         <AppFormField
           name="email"
           placeholder="Email"
@@ -92,8 +104,6 @@ function RegisterScreen({ navigation }) {
           autoCapitalize="none"
           keyboardType="email-address"
         />
-
-        {/* Password Field with Toggle */}
         <AppFormField
           name="password"
           placeholder="Password"
@@ -103,12 +113,9 @@ function RegisterScreen({ navigation }) {
           onRightIconPress={togglePasswordVisibility}
           autoCapitalize="none"
         />
-
-        {/* Submit Button */}
         <SubmitButton title="Register" />
       </AppForm>
 
-      {/* Link to Login Screen */}
       <TouchableOpacity onPress={() => navigation.navigate("Login")}>
         <Text style={stylesRegister.loginLink}>
           Already have an account? Login

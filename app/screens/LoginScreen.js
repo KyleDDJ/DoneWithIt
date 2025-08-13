@@ -35,6 +35,7 @@ import {
   SubmitButton,
 } from "../components/forms";
 
+import useAuth from "../hooks/useAuth";
 import authApi from "../api/auth";
 import stylesLogin from "../styles/LoginScreen.styles";
 
@@ -44,12 +45,9 @@ const validationSchema = Yup.object().shape({
 });
 
 function LoginScreen() {
-  const { logIn } = useAuth();
+  const auth = useAuth();
   const [loginFailed, setLoginFailed] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const handleForgotPassword = () => {
-    console.log("Forgot Password tapped");
-  };
 
   const socialLogins = [
     { name: "google", color: "#DB4437", iconSet: AntDesign },
@@ -61,7 +59,7 @@ function LoginScreen() {
     const result = await authApi.login(email, password);
     if (!result.ok) return setLoginFailed(true);
     setLoginFailed(false);
-    logIn(result.data);
+    auth.logIn(result.data);
   };
   return (
     <Screen style={stylesLogin.container}>
@@ -95,7 +93,7 @@ function LoginScreen() {
         />
         <SubmitButton title="Login" />
         <View style={stylesLogin.link_container}>
-          <TouchableWithoutFeedback onPress={handleForgotPassword}>
+          <TouchableWithoutFeedback>
             <Text style={stylesLogin.link}>Forgot Password?</Text>
           </TouchableWithoutFeedback>
         </View>
