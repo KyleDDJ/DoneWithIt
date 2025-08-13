@@ -16,12 +16,13 @@
       "supportsTablet": true
     },
     "android": {
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./app/assets/icons/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.kyleddj.DoneWithIt"
+      "package": "com.kyleddj.donewithit"
     },
     "web": {
       "favicon": "./app/assets/icons/favicon.png"
@@ -35,8 +36,6 @@
     "updates": {
       "url": "https://u.expo.dev/b0617ca5-da13-4627-b078-da30bdd4d057"
     },
-    "plugins": [
-      "expo-secure-store"
-    ]
+    "plugins": ["expo-secure-store"]
   }
 }
