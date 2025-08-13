@@ -20,6 +20,7 @@
     "@react-navigation/stack": "^6.4.1",
     "apisauce": "^3.2.0",
     "dayjs": "^1.11.13",
+    "expo": "~53.0.20",
     "expo-app-loading": "^2.1.1",
     "expo-blur": "~14.1.5",
     "expo-constants": "^17.1.7",
@@ -44,12 +45,12 @@
     "react-native-reanimated": "~3.17.4",
     "react-native-safe-area-context": "^5.4.0",
     "react-native-screens": "~4.11.1",
-    "yup": "^1.7.0",
-    "expo": "~53.0.20"
+    "yup": "^1.7.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
-    "expo": "^53.0.20"
+    "expo": "^53.0.20",
+    "sharp-cli": "^2.1.1"
   },
   "private": true
 }
