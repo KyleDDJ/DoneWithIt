@@ -1,20 +1,18 @@
 import React from "react";
-import { View, Image, TouchableOpacity, ScrollView, Text } from "react-native";
+import { View, Image, ScrollView, Text } from "react-native";
 import stylesDetails from "../styles/ListingDetailsScreen.styles";
 import AppText from "../components/AppText";
 import Colors from "../config/Colors";
 import Screen from "../components/Screen";
-import useSelectedSize from "../hooks/useSelectedSize";
 
 function ListingDetailsScreen({ route }) {
-  const { selectedSize, setSelectedSize } = useSelectedSize();
   const listing = route.params;
   return (
     <Screen style={{ backgroundColor: Colors.white }}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Image
           style={stylesDetails.image}
-          source={listing.image}
+          source={{ uri: listing.images[0].url }}
           resizeMode="cover"
         />
 

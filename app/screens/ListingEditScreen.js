@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import * as Yup from "yup";
 
 import {
@@ -13,6 +13,8 @@ import CategoryPickerItem from "../components/CategoryPickerItem";
 import useCategories from "../hooks/useCategories";
 import FormImagePicker from "../components/forms/FormImagePicker";
 import useLocation from "../hooks/useLocation";
+import listingsApi from "../api/listings";
+import UploadScreen from "./UploadScreen";
 
 /**
  * Validation schema for the listing form using Yup.
@@ -50,9 +52,31 @@ function ListingEditScreen() {
   const location = useLocation();
   // Custom hook to fetch categories for the picker
   const categories = useCategories();
+  const [uploadVisible, setUploadVisible] = useState(false);
+  const [progress, setProgress] = useState(0);
+
+  const handleSubmit = async (listing, { resetForm }) => {
+    setProgress(0);
+    setUploadVisible(true);
+    const result = await listingsApi.addListing(
+      { ...listing, location },
+      (progress) => setProgress(progress)
+    );
+
+    if (!result.ok) {
+      setUploadVisible(false);
+      return alert("Could not save the listing");
+    }
+    resetForm();
+  };
 
   return (
     <Screen style={stylesEdit.container}>
+      <UploadScreen
+        onDone={() => setUploadVisible(false)}
+        progress={progress}
+        visible={uploadVisible}
+      />
       <AppForm
         initialValues={{
           title: "",
@@ -61,7 +85,7 @@ function ListingEditScreen() {
           category: null,
           images: [],
         }}
-        onSubmit={(values) => console.log(location)}
+        onSubmit={handleSubmit}
         validationSchema={VALIDATION_SCHEMA}
       >
         <FormImagePicker name="images" />
