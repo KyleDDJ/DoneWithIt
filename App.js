@@ -1,3 +1,6 @@
+import Bugsnag from "@bugsnag/expo";
+Bugsnag.start();
+
 import React, { useEffect, useState, useCallback } from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
@@ -15,6 +18,8 @@ import logger from "./app/utility/logger";
 logger.start;
 
 export default function App() {
+  Bugsnag.notify(new Error("Test error"));
+
   const [user, setUser] = useState();
   const [isReady, setIsReady] = useState(false);
 

@@ -30,6 +30,9 @@
     "extra": {
       "eas": {
         "projectId": "b0617ca5-da13-4627-b078-da30bdd4d057"
+      },
+      "bugsnag": {
+        "apiKey": "cb410b80e5ce0386fe4dd2288f408393"
       }
     },
     "runtimeVersion": "1.0.0",
@@ -43,7 +46,8 @@
           "configureAndroidBackup": true,
           "faceIDPermission": "Allow $(PRODUCT_NAME) to access your Face ID biometric data."
         }
-      ]
+      ],
+      "@bugsnag/plugin-expo-eas-sourcemaps"
     ]
   }
 }

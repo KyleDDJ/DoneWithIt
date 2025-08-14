@@ -28,10 +28,10 @@ const settings = {
     apiUrl: "http://192.168.1.104:9000/api",
   },
   staging: {
-    apiUrl: "https://192.168.1.104:9000/api",
+    apiUrl: "http://192.168.1.104:9000/api",
   },
   prod: {
-    apiUrl: "https://192.168.1.104:9000/api",
+    apiUrl: "http://192.168.1.104:9000/api",
   },
 };
 
