@@ -104,7 +104,6 @@ function LoginScreen() {
           {socialLogins.map(({ name, color, iconSet: Icon }, index) => (
             <TouchableOpacity
               key={index}
-              onPress={() => handleSocialLogin(name)}
               style={[stylesLogin.social_button, { backgroundColor: color }]}
             >
               <Icon name={name} size={20} color="white" />
