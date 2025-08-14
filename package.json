@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@bugsnag/expo": "^53.0.0",
-    "@react-native-async-storage/async-storage": "^2.1.2",
+    "@react-native-async-storage/async-storage": "2.1.2",
     "@react-native-community/hooks": "^100.1.0",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-native-community/netinfo": "11.4.1",
@@ -21,7 +21,6 @@
     "apisauce": "^3.2.0",
     "dayjs": "^1.11.13",
     "expo": "~53.0.20",
-    "expo-app-loading": "^2.1.1",
     "expo-blur": "~14.1.5",
     "expo-constants": "^17.1.7",
     "expo-dev-client": "~5.2.4",
