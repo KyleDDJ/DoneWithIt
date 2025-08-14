@@ -4,6 +4,7 @@ import { Formik } from "formik";
 import AppTextInput from "../components/AppTextInput";
 import messagesApi from "../api/messages";
 import * as Notifications from "expo-notifications";
+import AppButton from "./AppButton";
 
 function ContactSellerForm({ listing }) {
   const handleSubmit = async ({ message }, { resetForm }) => {
@@ -35,7 +36,7 @@ function ContactSellerForm({ listing }) {
             onChangeText={handleChange("message")}
             value={values.message}
           />
-          <Button title="Contact Seller" onPress={handleSubmit} />
+          <AppButton title="Contact Seller" onPress={handleSubmit} />
         </View>
       )}
     </Formik>
