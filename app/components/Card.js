@@ -26,7 +26,7 @@ function Card({ title, sub_title, imageUrl, onPress, thumbnailUrl }) {
 const styles = StyleSheet.create({
   card: {
     borderRadius: 15,
-    backgroundColor: Colors.white,
+    backgroundColor: Colors.darkgreen,
     marginBottom: 20,
     overflow: "hidden",
   },
@@ -35,16 +35,16 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 200,
+    height: 180,
   },
   sub_title: {
-    color: Colors.secondary,
+    color: Colors.lightgrey,
     fontWeight: "bold",
   },
 
   title: {
     fontWeight: "bold",
-    color: Colors.black,
+    color: Colors.lightyellow,
     marginBottom: 7,
   },
 });

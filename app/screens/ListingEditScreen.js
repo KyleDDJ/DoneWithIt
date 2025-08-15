@@ -115,7 +115,7 @@ function ListingEditScreen() {
           numberOfLines={3}
           placeholder="Description"
         />
-        <SubmitButton title="Post" />
+        <SubmitButton color="darkgreen" title="Post" />
       </AppForm>
     </Screen>
   );

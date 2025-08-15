@@ -28,10 +28,14 @@ function WelcomeScreen({ navigation }) {
         <Text style={stylesWelcome.tagline}>Sell What You Don't Need</Text>
       </View>
       <View style={stylesWelcome.button_container}>
-        <AppButton title="Login" onPress={() => navigation.navigate("Login")} />
+        <AppButton
+          title="Login"
+          color="darkgreen"
+          onPress={() => navigation.navigate("Login")}
+        />
         <AppButton
           title="Register"
-          color="secondary"
+          color="lightyellow"
           onPress={() => navigation.navigate("Register")}
         />
       </View>

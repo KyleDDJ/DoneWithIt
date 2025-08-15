@@ -19,17 +19,19 @@ import ListItem from "../components/ListItem";
 import Screen from "../components/Screen";
 import ListItemSeparator from "../components/ListItemSeparator";
 import ListItemDeleteAction from "../components/ListItemDeleteAction";
+
 // import styles from "../styles/MessagesScreen.styles";
 
 // Custom hook to handle message state & actions
 import useMessages from "../hooks/useMessages";
+import Colors from "../config/Colors";
 
 function MessagesScreen() {
   // Extract state & handlers from the custom hook
   const { messages, refreshing, handleDelete, handleRefresh } = useMessages();
 
   return (
-    <Screen>
+    <Screen style={{ backgroundColor: Colors.darkgreen }}>
       {/**
        * FlatList:
        * - Displays the list of messages.

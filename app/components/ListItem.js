@@ -48,8 +48,10 @@ function ListItem({
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    padding: 5,
-    backgroundColor: Colors.white,
+    padding: 10,
+    borderTopRightRadius: 40,
+    borderBottomRightRadius: 40,
+    backgroundColor: Colors.lightyellow,
     alignItems: "center",
   },
   details_container: {
@@ -64,11 +66,12 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: 500,
+    color: Colors.darkgreen,
   },
   sub_title: {
     marginTop: 5,
     fontSize: 13,
-    color: Colors.grey,
+    color: Colors.darkgreen,
   },
 });
 

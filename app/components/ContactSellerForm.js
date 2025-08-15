@@ -40,7 +40,11 @@ function ContactSellerForm({ listing }) {
             value={values.message}
           />
           <ErrorMessage error={error} visible={true} />
-          <AppButton title="Contact Seller" onPress={handleSubmit} />
+          <AppButton
+            color="darkgreen"
+            title="Contact Seller"
+            onPress={handleSubmit}
+          />
         </View>
       )}
     </Formik>

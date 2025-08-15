@@ -20,7 +20,7 @@ function ListingDetailsScreen({ route }) {
   const listing = route.params;
   const { user } = useAuth();
   return (
-    <Screen style={{ backgroundColor: Colors.white }}>
+    <Screen style={{ backgroundColor: Colors.lightyellow }}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <KeyboardAvoidingView
           behavior="position"
@@ -33,7 +33,6 @@ function ListingDetailsScreen({ route }) {
             uri={listing.images[0].url}
             resizeMode="cover"
           />
-
           <View style={stylesDetails.details_container}>
             <View style={stylesDetails.price_row}>
               <AppText style={stylesDetails.title}>{listing.title}</AppText>
@@ -59,7 +58,7 @@ function ListingDetailsScreen({ route }) {
               title={user.name}
               subTitle={`5 Listings`}
               image={userImage}
-              showChevron={true}
+              showChevron={false}
             />
           </View>
           <View style={{ marginVertical: 20 }}>

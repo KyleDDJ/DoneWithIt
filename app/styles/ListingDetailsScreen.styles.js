@@ -4,15 +4,23 @@ import Colors from "../config/Colors";
 const styles = StyleSheet.create({
   image: {
     width: "100%",
-    height: 250,
+    height: 300,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    alignContent: "center",
+    alignSelf: "center",
   },
   details_container: {
     padding: 15,
+    marginVertical: 5,
+    backgroundColor: Colors.darkgreen,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
   },
   title: {
     fontSize: 22,
     fontWeight: "bold",
-    color: Colors.black,
+    color: Colors.lightyellow,
   },
   price_row: {
     flexDirection: "column",
@@ -23,36 +31,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
     fontSize: 20,
     fontWeight: "bold",
-    color: Colors.secondary,
+    color: Colors.lightgrey,
     marginRight: 10,
-  },
-  section_title: {
-    fontWeight: "bold",
-    fontSize: 16,
-    marginVertical: 8,
-  },
-  size_row: {
-    flexDirection: "row",
-    marginBottom: 15,
-  },
-  size_button: {
-    borderWidth: 1,
-    borderColor: Colors.grey,
-    borderRadius: 20,
-    paddingVertical: 5,
-    paddingHorizontal: 15,
-    marginRight: 10,
-  },
-  size_selected: {
-    backgroundColor: Colors.secondary,
-    borderColor: Colors.secondary,
-  },
-  size_text: {
-    color: Colors.black,
-    fontWeight: "bold",
-  },
-  size_text_selected: {
-    color: Colors.white,
   },
   tab_row: {
     flexDirection: "row",
@@ -63,17 +43,17 @@ const styles = StyleSheet.create({
     marginRight: 20,
     fontWeight: "bold",
     fontSize: 16,
-    color: Colors.grey,
+    color: Colors.lightgrey,
   },
   tab_active: {
-    color: Colors.black,
+    color: Colors.lightyellow,
     borderBottomWidth: 2,
-    borderBottomColor: Colors.primary,
+    borderBottomColor: Colors.lightyellow,
     paddingBottom: 2,
   },
   description: {
     fontSize: 14,
-    color: Colors.grey,
+    color: Colors.lightgrey,
     lineHeight: 20,
     marginTop: 10,
   },

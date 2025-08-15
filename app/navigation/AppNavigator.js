@@ -18,11 +18,21 @@ const AppNavigator = () => {
   return (
     <Tab.Navigator
       screenOptions={{
+        tabBarInactiveTintColor: "lightgrey",
+        tabBarActiveTintColor: "#f9f4d1ff",
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: "white",
+          backgroundColor: "#33392b",
           borderTopWidth: 0,
-          elevation: 0,
+          borderRadius: 30,
+          marginHorizontal: 10,
+          marginBottom: 10,
+          height: 60,
+          position: "absolute",
+        },
+        tabBarLabelStyle: {
+          fontSize: 12,
+          marginBottom: 10,
         },
       }}
     >

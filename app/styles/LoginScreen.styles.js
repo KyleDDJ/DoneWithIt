@@ -4,6 +4,7 @@ import Colors from "../config/Colors";
 const styles = StyleSheet.create({
   container: {
     padding: 15,
+    backgroundColor: Colors.lightyellow,
   },
   logo: {
     width: 80,
@@ -29,10 +30,10 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     fontWeight: "bold",
     fontSize: 10,
-    color: Colors.grey,
+    color: Colors.lightyellow,
   },
   or_container: {
-    backgroundColor: Colors.lightgrey,
+    backgroundColor: Colors.darkgreen,
     width: 20,
     height: 20,
     borderRadius: 10,

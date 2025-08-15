@@ -91,7 +91,7 @@ function LoginScreen() {
           rightIcon={showPassword ? "eye-off" : "eye"}
           onRightIconPress={() => setShowPassword(!showPassword)}
         />
-        <SubmitButton title="Login" />
+        <SubmitButton title="Login" color="darkgreen" />
         <View style={stylesLogin.link_container}>
           <TouchableWithoutFeedback>
             <Text style={stylesLogin.link}>Forgot Password?</Text>

@@ -51,7 +51,7 @@ function AccountScreen({ navigation }) {
         onPress={() => logOut()}
         title={"Log Out"}
         showChevron={false}
-        IconComponent={<Icon name="logout" backgroundColor="#ffe66d" />}
+        IconComponent={<Icon name="logout" backgroundColor="#33392b" />}
       />
     </Screen>
   );

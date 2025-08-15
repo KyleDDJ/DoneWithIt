@@ -3,10 +3,10 @@ import Colors from "../config/Colors";
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 20,
+    marginVertical: 10,
   },
   screen: {
-    backgroundColor: Colors.lightgrey,
+    backgroundColor: Colors.darkgreen,
   },
 });
 

@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 1,
     padding: 2,
-    backgroundColor: Colors.lightgrey,
+    backgroundColor: Colors.darkgreen,
   },
 });
 

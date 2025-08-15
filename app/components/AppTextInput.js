@@ -16,7 +16,7 @@ function AppTextInput({
         <MaterialCommunityIcons
           name={icon}
           size={25}
-          color={defaultStyle.colors.grey}
+          color={defaultStyle.colors.darkgreen}
           style={styles.icon}
         />
       )}
@@ -33,7 +33,7 @@ function AppTextInput({
           <MaterialCommunityIcons
             name={rightIcon}
             size={25}
-            color={defaultStyle.colors.grey}
+            color={defaultStyle.colors.darkgreen}
           />
         </TouchableOpacity>
       )}

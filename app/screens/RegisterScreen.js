@@ -122,7 +122,7 @@ function RegisterScreen({ navigation }) {
             onRightIconPress={togglePasswordVisibility}
             autoCapitalize="none"
           />
-          <SubmitButton title="Register" />
+          <SubmitButton color="darkgreen" title="Register" />
         </AppForm>
 
         <TouchableOpacity onPress={() => navigation.navigate("Login")}>

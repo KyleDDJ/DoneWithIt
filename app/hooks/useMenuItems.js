@@ -6,7 +6,7 @@ export function useMenuItems() {
       title: "My Listings",
       icon: {
         name: "format-list-bulleted",
-        backgroundColor: colors.primary,
+        backgroundColor: colors.darkgreen,
       },
       targetScreen: "MyListings",
     },
@@ -14,7 +14,7 @@ export function useMenuItems() {
       title: "My Messages",
       icon: {
         name: "email",
-        backgroundColor: colors.secondary,
+        backgroundColor: colors.darkgreen,
       },
       targetScreen: "Messages",
     },
