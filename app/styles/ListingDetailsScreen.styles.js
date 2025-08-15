@@ -15,16 +15,12 @@ const styles = StyleSheet.create({
     color: Colors.black,
   },
   price_row: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: "column",
     marginVertical: 10,
     justifyContent: "space-between",
   },
-  price_discount: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
   price: {
+    marginTop: 10,
     fontSize: 20,
     fontWeight: "bold",
     color: Colors.secondary,

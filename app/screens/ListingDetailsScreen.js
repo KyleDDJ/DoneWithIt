@@ -37,9 +37,7 @@ function ListingDetailsScreen({ route }) {
           <View style={stylesDetails.details_container}>
             <View style={stylesDetails.price_row}>
               <AppText style={stylesDetails.title}>{listing.title}</AppText>
-              <View style={stylesDetails.price_discount}>
-                <Text style={stylesDetails.price}>${listing.price}</Text>
-              </View>
+              <Text style={stylesDetails.price}>${listing.price}</Text>
             </View>
 
             <View style={stylesDetails.tab_row}>
