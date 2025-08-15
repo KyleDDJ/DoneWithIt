@@ -9,13 +9,17 @@ function UploadScreen({ onDone, progress = 0, visible = false }) {
     <Modal visible={visible}>
       <View style={styles.container}>
         {progress < 1 ? (
-          <Progess.Bar color={Colors.primary} progress={progress} width={200} />
+          <Progess.Bar
+            color={Colors.darkgreen}
+            progress={progress}
+            width={200}
+          />
         ) : (
           <LottieView
             autoPlay
             loop={false}
             onAnimationFinish={onDone}
-            source={require("../assets/animations/done.json")}
+            source={require("../assets/animations/done2.json")}
             style={styles.animation}
           />
         )}
@@ -33,6 +37,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     flex: 1,
+    backgroundColor: Colors.lightyellow,
   },
 });
 
