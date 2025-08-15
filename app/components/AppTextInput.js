@@ -2,6 +2,7 @@ import React from "react";
 import { View, TextInput, StyleSheet, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import defaultStyle from "../config/Styles";
+import Colors from "../config/Colors";
 
 function AppTextInput({
   icon,
@@ -22,7 +23,7 @@ function AppTextInput({
       )}
       <TextInput
         style={styles.input}
-        placeholderTextColor={defaultStyle.colors.medium}
+        placeholderTextColor={Colors.grey}
         {...otherProps}
       />
       {rightIcon && (
@@ -33,7 +34,7 @@ function AppTextInput({
           <MaterialCommunityIcons
             name={rightIcon}
             size={25}
-            color={defaultStyle.colors.grey}
+            color={defaultStyle.Colors.grey}
           />
         </TouchableOpacity>
       )}
@@ -43,7 +44,7 @@ function AppTextInput({
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: defaultStyle.colors.lightgrey,
+    backgroundColor: defaultStyle.Colors.lightgrey,
     borderRadius: 25,
     flexDirection: "row",
     alignItems: "center",
