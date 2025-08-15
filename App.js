@@ -13,12 +13,12 @@ import AuthNavigator from "./app/navigation/AuthNavigation";
 import AuthContext from "./app/auth/context";
 import authStorage from "./app/auth/storage";
 import { navigationRef } from "./app/navigation/rootNavigation";
-import logger from "./app/utility/logger";
 
+import logger from "./app/utility/logger";
 logger.start;
 
 export default function App() {
-  Bugsnag.notify(new Error("Test error"));
+  // Bugsnag.notify(new Error("Test error"));
 
   const [user, setUser] = useState();
   const [isReady, setIsReady] = useState(false);

@@ -1,6 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import dayjs from "dayjs";
 import _ from "lodash";
+import logger from "./logger";
 
 const prefix = "cache";
 
@@ -12,7 +13,7 @@ const store = async (key, value) => {
     };
     await AsyncStorage.setItem(prefix + key, JSON.stringify(value));
   } catch (error) {
-    console.log(error);
+    logger.log(error);
   }
 };
 
@@ -36,7 +37,7 @@ const get = async (key) => {
 
     return item.value;
   } catch (error) {
-    console.log(error);
+    logger.log(error);
   }
 };
 
